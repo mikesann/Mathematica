@@ -1,0 +1,181 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5650,        172]
+NotebookOptionsPosition[      4819,        139]
+NotebookOutlinePosition[      5314,        159]
+CellTagsIndexPosition[      5271,        156]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Valerie Richmond 8am CPS Simple Task 3", \
+"Subsubtitle"]], "Text",
+ CellChangeTimes->{{3.6004340215161753`*^9, 3.6004340305244718`*^9}}],
+
+Cell[TextData[StyleBox["1.", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.6004340462277594`*^9, 3.600434046297738*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"start", "=", "12"}], ";"}], "  "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"stop", "=", "37"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"While", "[", 
+  RowBox[{
+   RowBox[{"start", "\[LessEqual]", "stop"}], ",", " ", 
+   RowBox[{
+    RowBox[{"sum", "=", 
+     RowBox[{"sum", "+", 
+      SuperscriptBox["start", "2"]}]}], ";", 
+    RowBox[{"start", "++"}]}]}], 
+  "]"}], "\[IndentingNewLine]", "sum"}], "Input",
+ CellChangeTimes->{{3.6004340588754454`*^9, 3.600434113345194*^9}, {
+   3.6004346342139473`*^9, 3.6004346688983974`*^9}, {3.600443309206771*^9, 
+   3.600443314477667*^9}, {3.6004433687431345`*^9, 3.6004433853841333`*^9}, {
+   3.600443774263879*^9, 3.6004437889241724`*^9}, {3.6004438938972716`*^9, 
+   3.6004438962873197`*^9}, {3.600444232264349*^9, 3.600444273283939*^9}, 
+   3.600472197143364*^9, {3.6004722849059324`*^9, 3.600472287945902*^9}, {
+   3.6004723242855387`*^9, 3.6004723270855103`*^9}}],
+
+Cell[BoxData["17069"], "Output",
+ CellChangeTimes->{
+  3.6004346356437187`*^9, 3.600434673617642*^9, {3.600443775563905*^9, 
+   3.600443789714188*^9}, {3.6004442388342834`*^9, 3.6004442631140404`*^9}, 
+   3.600472210722364*^9, 3.6004722884758964`*^9, 3.6004749948148212`*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["2.", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.6004346839164457`*^9, 3.600434683996441*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"sum", ",", "start", ",", "stop"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"start", " ", "=", " ", "7"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"stop", " ", "=", " ", "29"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"i", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"start", " ", "\[LessEqual]", " ", "stop"}], ",", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"IntegerQ", "[", 
+        FractionBox["i", "2"], "]"}], ",", 
+       RowBox[{"sum", "=", 
+        RowBox[{"sum", "+", 
+         SuperscriptBox["start", "2"]}]}]}], "]"}], ";", 
+     RowBox[{"start", "++"}], ";", 
+     RowBox[{"i", "++"}]}]}], "]"}], 
+  " "}], "\[IndentingNewLine]", "sum"}], "Input",
+ CellChangeTimes->{{3.6004350711034017`*^9, 3.6004353196367507`*^9}, {
+  3.600444866720004*^9, 3.6004448683299885`*^9}}],
+
+Cell[BoxData["4460"], "Output",
+ CellChangeTimes->{3.6004750190033674`*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["3.", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.6004430698440866`*^9, 3.6004430699241*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"start", ",", "stop", ",", "sum"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"start", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"stop", "=", "26"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"While", "[", 
+  RowBox[{
+   RowBox[{"start", " ", "\[LessEqual]", "stop"}], ",", " ", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"IntegerQ", "[", 
+        FractionBox["start", "2"], "]"}]}], ",", 
+      RowBox[{"sum", "=", 
+       RowBox[{"sum", "+", 
+        SuperscriptBox["start", "2"]}]}]}], "]"}], ";", 
+    RowBox[{"start", "++"}]}]}], 
+  "]"}], "\[IndentingNewLine]", "sum"}], "Input",
+ CellChangeTimes->{{3.6004430875070887`*^9, 3.6004432380636787`*^9}, {
+  3.6004432706902246`*^9, 3.6004432878631434`*^9}, {3.600444465393018*^9, 
+  3.6004444825428467`*^9}, {3.6004722797559834`*^9, 3.600472281625965*^9}, {
+  3.6004723320354605`*^9, 3.60047233511543*^9}}],
+
+Cell[BoxData["2760"], "Output",
+ CellChangeTimes->{3.6004432721204677`*^9, 3.60044447118296*^9, 
+  3.600472294435837*^9, 3.600475021463294*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, 80}, {Automatic, 40}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 161, 2, 37, "Text"],
+Cell[721, 24, 118, 1, 48, "Text"],
+Cell[CellGroupData[{
+Cell[864, 29, 1036, 23, 115, "Input"],
+Cell[1903, 54, 275, 4, 31, "Output"]
+}, Open  ]],
+Cell[2193, 61, 118, 1, 48, "Text"],
+Cell[CellGroupData[{
+Cell[2336, 66, 1039, 29, 168, "Input"],
+Cell[3378, 97, 75, 1, 31, "Output"]
+}, Open  ]],
+Cell[3468, 101, 116, 1, 48, "Text"],
+Cell[CellGroupData[{
+Cell[3609, 106, 1048, 26, 148, "Input"],
+Cell[4660, 134, 143, 2, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

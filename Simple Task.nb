@@ -1,0 +1,819 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     23095,        810]
+NotebookOptionsPosition[     20315,        719]
+NotebookOutlinePosition[     20659,        734]
+CellTagsIndexPosition[     20616,        731]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "                                                                            \
+                         Valerie Richmond 8am CPS",
+ StyleBox["\nFor", "Subtitle"]
+}], "Text",
+ CellChangeTimes->{{3.599930462090914*^9, 3.5999304643108473`*^9}, {
+  3.5999331025707407`*^9, 3.599933151870248*^9}}],
+
+Cell[TextData[Cell[BoxData[Cell[TextData[{
+  Cell[BoxData[
+   RowBox[{"a", ".", " ", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      StyleBox["start", "TI"], ",", 
+      StyleBox["test", "TI"], ",", 
+      StyleBox["incr", "TI"], ",", 
+      StyleBox["body", "TI"]}], "]"}]}]], "InlineFormula"],
+  "executes ",
+  Cell[BoxData[
+   StyleBox["start", "TI"]], "InlineFormula"],
+  ", then repeatedly evaluates ",
+  Cell[BoxData[
+   StyleBox["body", "TI"]], "InlineFormula"],
+  " and ",
+  Cell[BoxData[
+   StyleBox["incr", "TI"]], "InlineFormula"],
+  " until ",
+  Cell[BoxData[
+   StyleBox["test", "TI"]], "InlineFormula"],
+  " fails to give True. If no body is included, then the loop is still \
+executed with a null body. If more than one statement is used within start or \
+within incr, then the statements are separated by a semicolon. Break and \
+Continue work like normal."
+ }]]],
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}]], "Text",
+ CellChangeTimes->{{3.59993056555781*^9, 3.5999306134663725`*^9}, {
+  3.599930676645434*^9, 3.599930739424806*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"b", " ", "and", " ", 
+    RowBox[{"c", "."}]}], "*)"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "27"}], ",", 
+    RowBox[{"i", "<", "35"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"Print", "[", "i", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5999307464847355`*^9, 3.599930747284727*^9}, {
+   3.599930780314397*^9, 3.5999308228939714`*^9}, {3.599930862813572*^9, 
+   3.5999308679635205`*^9}, 3.59993179225994*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["27"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706634936`*^9}],
+
+Cell[BoxData["28"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706634936`*^9}],
+
+Cell[BoxData["29"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}],
+
+Cell[BoxData["30"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}],
+
+Cell[BoxData["31"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}],
+
+Cell[BoxData["32"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}],
+
+Cell[BoxData["33"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}],
+
+Cell[BoxData["34"], "Print",
+ CellChangeTimes->{{3.5999308141140594`*^9, 3.599930827223928*^9}, 
+   3.5999308706734934`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "Text"],
+
+Cell[BoxData[
+ StyleBox["While", "Subtitle"]], "Input",
+ CellChangeTimes->{{3.5999308771934285`*^9, 3.59993087797342*^9}}],
+
+Cell[TextData[{
+ "a. ",
+ Cell[BoxData[
+  RowBox[{"While", "[", 
+   RowBox[{
+    StyleBox["test", "TI"], ",", 
+    StyleBox["body", "TI"]}], "]"}]], "InlineFormula"],
+ "evaluates ",
+ Cell[BoxData[
+  StyleBox["test", "TI"]], "InlineFormula"],
+ ", then ",
+ Cell[BoxData[
+  StyleBox["body", "TI"]], "InlineFormula"],
+ ", repetitively, until ",
+ Cell[BoxData[
+  StyleBox["test", "TI"]], "InlineFormula"],
+ " first fails to give True. If no body is given then the loop is executed \
+with a null body. Break and Continue work like in java. If there is more than \
+one statement within the body then they are separated by a semicolon."
+}], "Text",
+ CellChangeTimes->{{3.5999309463127375`*^9, 3.599930982822372*^9}, {
+  3.5999310132820673`*^9, 3.5999310935612645`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"b", ".", " ", "and"}], " ", 
+    RowBox[{"c", "."}]}], "*)"}], " "}]], "Input",
+ CellChangeTimes->{{3.599931106551135*^9, 3.5999311149910507`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"n", " ", "=", " ", "27"}], ";", " ", 
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"n", "\[LessEqual]", "32"}], ",", " ", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"n", "*", "n"}], "]"}], ";", 
+     RowBox[{"n", "++"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.599931129700903*^9, 3.5999312010611897`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["729"], "Print",
+ CellChangeTimes->{3.599931212671074*^9}],
+
+Cell[BoxData["784"], "Print",
+ CellChangeTimes->{3.599931212671074*^9}],
+
+Cell[BoxData["841"], "Print",
+ CellChangeTimes->{3.599931212671074*^9}],
+
+Cell[BoxData["900"], "Print",
+ CellChangeTimes->{3.599931212681073*^9}],
+
+Cell[BoxData["961"], "Print",
+ CellChangeTimes->{3.599931212681073*^9}],
+
+Cell[BoxData["1024"], "Print",
+ CellChangeTimes->{3.599931212681073*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[StyleBox["\nIf", "Subtitle"]], "Text",
+ CellChangeTimes->{{3.599931436718695*^9, 3.5999314468575134`*^9}}],
+
+Cell[TextData[{
+ "a. ",
+ Cell[BoxData[
+  RowBox[{"If", "[", 
+   RowBox[{
+    StyleBox["condition", "TI"], ",", 
+    StyleBox["t", "TI"], ",", 
+    StyleBox["f", "TI"]}], "]"}]], "InlineFormula"],
+ "gives ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ " if ",
+ Cell[BoxData[
+  StyleBox["condition", "TI"]], "InlineFormula"],
+ " evaluates to True, and ",
+ Cell[BoxData[
+  StyleBox["f", "TI"]], "InlineFormula"],
+ " if it evaluates to False. ",
+ "(This is used in the example.)",
+ "\n",
+ Cell[BoxData[
+  RowBox[{"If", "[", 
+   RowBox[{
+    StyleBox["condition", "TI"], ",", 
+    StyleBox["t", "TI"], ",", 
+    StyleBox["f", "TI"], ",", 
+    StyleBox["u", "TI"]}], "]"}]], "InlineFormula"],
+ "gives ",
+ Cell[BoxData[
+  StyleBox["u", "TI"]], "InlineFormula"],
+ " if ",
+ Cell[BoxData[
+  StyleBox["condition", "TI"]], "InlineFormula"],
+ " evaluates to neither True nor ",
+ Cell[BoxData["False"], "InlineFormula"],
+ ". \nIf condition evaluates to neither true or false and no u is given, then \
+the statement is left unevaluated. If [condition, t] fives Null if conidition \
+is false. The statement only evaluates the argument determined by the value \
+of the condition."
+}], "Text",
+ CellChangeTimes->{{3.599931491336179*^9, 3.5999314915661716`*^9}, {
+  3.599931533994899*^9, 3.599931588523263*^9}, {3.599931635761846*^9, 
+  3.5999317521103415`*^9}, {3.59994530763937*^9, 3.59994531280937*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"b", ".", " ", "and"}], " ", 
+    RowBox[{"c", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"score", " ", "=", " ", "299"}], ";"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"score", "<", " ", "208"}], ",", " ", "\"\<below 208\>\"", ",", 
+     " ", "\"\<larger than or equal to 208\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.5999317979798827`*^9, 3.5999318781590815`*^9}, {
+  3.599931927848584*^9, 3.599931940908454*^9}, {3.5999319860880017`*^9, 
+  3.599932011717746*^9}}],
+
+Cell[BoxData["\<\"larger than or equal to 208\"\>"], "Output",
+ CellChangeTimes->{{3.599932004577817*^9, 3.599932012567737*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"score", " ", "=", " ", "197"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"score", " ", "<", " ", "208"}], ",", "\"\<below 208\>\"", ",", 
+   " ", "\"\<larger than or equal to 208\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.599931890188961*^9, 3.599931906368799*^9}, 
+   3.59993202024766*^9}],
+
+Cell[BoxData["\<\"below 208\"\>"], "Output",
+ CellChangeTimes->{3.5999320232176304`*^9, 3.599932068468178*^9}]
+}, Open  ]],
+
+Cell["", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["Do", "Subtitle"], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.599932081498048*^9, 3.5999320925279374`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"a", ".", " ", 
+   RowBox[{"Do", "[", 
+    RowBox[{
+     StyleBox["expr", "TI"], ",", 
+     RowBox[{"{", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]], "}"}]}], "]"}]}]], "InlineFormula"],
+ "evaluates ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["max", "TI"]]], "InlineFormula"],
+ " times.\n",
+ Cell[BoxData[
+  RowBox[{"Do", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}]}], "]"}]], "InlineFormula"],
+ "evaluates ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " with the variable ",
+ Cell[BoxData[
+  StyleBox["i", "TI"]], "InlineFormula"],
+ " successively taking on the values ",
+ Cell[BoxData["1"], "InlineFormula"],
+ " through ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["max", "TI"]]], "InlineFormula"],
+ " (in steps of ",
+ Cell[BoxData["1"], "InlineFormula"],
+ ").\n",
+ Cell[BoxData[
+  RowBox[{"Do", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["min", "TI"]], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}]}], "]"}]], "InlineFormula"],
+ " starts with ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["i", "TI"], "=", 
+   SubscriptBox[
+    StyleBox["i", "TI"], 
+    StyleBox["min", "TI"]]}]], "InlineFormula"],
+ ". (This is used in the example.)\n",
+ Cell[BoxData[Cell[TextData[{
+   Cell[BoxData[
+    RowBox[{"Do", "[", 
+     RowBox[{
+      StyleBox["expr", "TI"], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        StyleBox["i", "TI"], ",", 
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["min", "TI"]], ",", 
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["max", "TI"]], ",", 
+        StyleBox["di", "TI"]}], "}"}]}], "]"}]], "InlineFormula"],
+   "uses steps ",
+   Cell[BoxData[
+    StyleBox["di", "TI"]], "InlineFormula"],
+   ". "
+  }]]],
+  GridBoxOptions->{
+  GridBoxBackground->{
+   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {None, None, None, None, None, {None}}, "RowsIndexed" -> {}}}],
+ "\n",
+ Cell[BoxData[Cell[TextData[{
+   Cell[BoxData[
+    RowBox[{"Do", "[", 
+     RowBox[{
+      StyleBox["expr", "TI"], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        StyleBox["i", "TI"], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["i", "TI"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["i", "TI"], 
+           StyleBox["2", "TR"]], ",", 
+          StyleBox["\[Ellipsis]", "TR"]}], "}"}]}], "}"}]}], "]"}]], 
+    "InlineFormula"],
+   "uses the successive values ",
+   Cell[BoxData[
+    SubscriptBox[
+     StyleBox["i", "TI"], 
+     StyleBox["1", "TR"]]], "InlineFormula"],
+   ", ",
+   Cell[BoxData[
+    SubscriptBox[
+     StyleBox["i", "TI"], 
+     StyleBox["2", "TR"]]], "InlineFormula"],
+   ", \[Ellipsis]."
+  }]]],
+  GridBoxOptions->{
+  GridBoxBackground->{
+   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {None, None, None, None, None, {None}}, "RowsIndexed" -> {}}}],
+ "\n",
+ Cell[BoxData[
+  RowBox[{"Do", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["min", "TI"]], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["j", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["j", "TI"], 
+       StyleBox["min", "TI"]], ",", 
+      SubscriptBox[
+       StyleBox["j", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}], ",", 
+    StyleBox["\[Ellipsis]", "TR"]}], "]"}]], "InlineFormula"],
+ "evaluates ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " looping over different values of ",
+ Cell[BoxData[
+  StyleBox["j", "TI"]], "InlineFormula"],
+ ", etc. for each ",
+ Cell[BoxData[
+  StyleBox["i", "TI"]], "InlineFormula"],
+ ". \nBreak, Return, Continue, and Throw work inside Do."
+}], "Text",
+ CellChangeTimes->{{3.599932159707266*^9, 3.599932303795825*^9}, 
+   3.599932395884904*^9, {3.5999329595721707`*^9, 3.5999329597921686`*^9}, {
+   3.59994524312037*^9, 3.59994525602637*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"b", ".", " ", "and"}], " ", 
+    RowBox[{"c", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      SuperscriptBox["n", "3"], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", " ", "15", ",", "37"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{
+  3.5999321723171396`*^9, {3.5999324061648006`*^9, 3.599932446124401*^9}, {
+   3.5999327792029743`*^9, 3.599932784342923*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["3375"], "Print",
+ CellChangeTimes->{3.599932448654376*^9}],
+
+Cell[BoxData["4096"], "Print",
+ CellChangeTimes->{3.599932448654376*^9}],
+
+Cell[BoxData["4913"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["5832"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["6859"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["8000"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["9261"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["10648"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["12167"], "Print",
+ CellChangeTimes->{3.5999324486643763`*^9}],
+
+Cell[BoxData["13824"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["15625"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["17576"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["19683"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["21952"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["24389"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["27000"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["29791"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["32768"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["35937"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["39304"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["42875"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["46656"], "Print",
+ CellChangeTimes->{3.599932448674376*^9}],
+
+Cell[BoxData["50653"], "Print",
+ CellChangeTimes->{3.599932448684376*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+Table\
+\>", "Subtitle",
+ CellChangeTimes->{{3.5999328007327595`*^9, 3.5999328050327163`*^9}}],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"a", ".", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     StyleBox["expr", "TI"], ",", 
+     RowBox[{"{", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]], "}"}]}], "]"}]}]], "InlineFormula"],
+ "generates a list of ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["max", "TI"]]], "InlineFormula"],
+ " copies of ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ ". \n",
+ Cell[BoxData[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}]}], "]"}]], "InlineFormula"],
+ "generates a list of the values of ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " when ",
+ Cell[BoxData[
+  StyleBox["i", "TI"]], "InlineFormula"],
+ " runs from 1 to ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["max", "TI"]]], "InlineFormula"],
+ ". \n",
+ Cell[BoxData[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["min", "TI"]], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]]}], "}"}]}], "]"}]], "InlineFormula"],
+ "starts with ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["i", "TI"], "=", 
+   SubscriptBox[
+    StyleBox["i", "TI"], 
+    StyleBox["min", "TI"]]}]], "InlineFormula"],
+ ". ",
+ "(This is used in the example.)",
+ "\n",
+ Cell[BoxData[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["min", "TI"]], ",", 
+      SubscriptBox[
+       StyleBox["i", "TI"], 
+       StyleBox["max", "TI"]], ",", 
+      StyleBox["di", "TI"]}], "}"}]}], "]"}]], "InlineFormula"],
+ "uses steps ",
+ Cell[BoxData[
+  StyleBox["di", "TI"]], "InlineFormula"],
+ ". \n",
+ Cell[BoxData[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    StyleBox["expr", "TI"], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox["i", "TI"], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["1", "TR"]], ",", 
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["2", "TR"]], ",", 
+        StyleBox["\[Ellipsis]", "TR"]}], "}"}]}], "}"}]}], "]"}]], 
+  "InlineFormula"],
+ "uses the successive values ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["1", "TR"]]], "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["i", "TI"], 
+   StyleBox["2", "TR"]]], "InlineFormula"],
+ ", \[Ellipsis].\n",
+ Cell[BoxData[Cell[TextData[{
+   Cell[BoxData[
+    RowBox[{"Table", "[", 
+     RowBox[{
+      StyleBox["expr", "TI"], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        StyleBox["i", "TI"], ",", 
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["min", "TI"]], ",", 
+        SubscriptBox[
+         StyleBox["i", "TI"], 
+         StyleBox["max", "TI"]]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        StyleBox["j", "TI"], ",", 
+        SubscriptBox[
+         StyleBox["j", "TI"], 
+         StyleBox["min", "TI"]], ",", 
+        SubscriptBox[
+         StyleBox["j", "TI"], 
+         StyleBox["max", "TI"]]}], "}"}], ",", 
+      StyleBox["\[Ellipsis]", "TR"]}], "]"}]], "InlineFormula"],
+   "gives a nested list. The list associated with ",
+   Cell[BoxData[
+    StyleBox["i", "TI"]], "InlineFormula"],
+   " is outermost."
+  }]]],
+  GridBoxOptions->{
+  GridBoxBackground->{
+   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {None, None, None, None, None, {None}}, "RowsIndexed" -> {}}}]
+}], "Text",
+ CellChangeTimes->{{3.5999328254925117`*^9, 3.599932969582071*^9}, 
+   3.59994527350237*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"b", ".", " ", "and"}], " ", 
+    RowBox[{"c", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    SuperscriptBox["i", "4"], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", " ", "7", ",", " ", "12"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.59993278963287*^9, {3.5999329731920347`*^9, 3.599932980141965*^9}, {
+   3.5999330190815754`*^9, 3.59993307264104*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2401", ",", "4096", ",", "6561", ",", "10000", ",", "14641", ",", 
+   "20736"}], "}"}]], "Output",
+ CellChangeTimes->{3.599933082360943*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{-9, Automatic}, {Automatic, 30}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 309, 6, 67, "Text"],
+Cell[869, 28, 1141, 31, 117, "Text"],
+Cell[CellGroupData[{
+Cell[2035, 63, 527, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[2587, 80, 124, 2, 23, "Print"],
+Cell[2714, 84, 124, 2, 23, "Print"],
+Cell[2841, 88, 124, 2, 23, "Print"],
+Cell[2968, 92, 124, 2, 23, "Print"],
+Cell[3095, 96, 124, 2, 23, "Print"],
+Cell[3222, 100, 124, 2, 23, "Print"],
+Cell[3349, 104, 124, 2, 23, "Print"],
+Cell[3476, 108, 124, 2, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[3627, 114, 16, 0, 30, "Text"],
+Cell[3646, 116, 122, 2, 49, "Input"],
+Cell[3771, 120, 760, 21, 69, "Text"],
+Cell[4534, 143, 213, 6, 31, "Input"],
+Cell[CellGroupData[{
+Cell[4772, 153, 363, 10, 31, "Input"],
+Cell[CellGroupData[{
+Cell[5160, 167, 71, 1, 23, "Print"],
+Cell[5234, 170, 71, 1, 23, "Print"],
+Cell[5308, 173, 71, 1, 23, "Print"],
+Cell[5382, 176, 71, 1, 23, "Print"],
+Cell[5456, 179, 71, 1, 23, "Print"],
+Cell[5530, 182, 72, 1, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[5629, 187, 120, 1, 85, "Text"],
+Cell[5752, 190, 1401, 42, 127, "Text"],
+Cell[CellGroupData[{
+Cell[7178, 236, 616, 16, 72, "Input"],
+Cell[7797, 254, 128, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7962, 260, 364, 8, 52, "Input"],
+Cell[8329, 270, 110, 1, 31, "Output"]
+}, Open  ]],
+Cell[8454, 274, 16, 0, 30, "Text"],
+Cell[8473, 276, 156, 3, 59, "Input"],
+Cell[8632, 281, 4544, 162, 183, "Text"],
+Cell[CellGroupData[{
+Cell[13201, 447, 543, 16, 75, "Input"],
+Cell[CellGroupData[{
+Cell[13769, 467, 72, 1, 23, "Print"],
+Cell[13844, 470, 72, 1, 23, "Print"],
+Cell[13919, 473, 74, 1, 23, "Print"],
+Cell[13996, 476, 74, 1, 23, "Print"],
+Cell[14073, 479, 74, 1, 23, "Print"],
+Cell[14150, 482, 74, 1, 23, "Print"],
+Cell[14227, 485, 74, 1, 23, "Print"],
+Cell[14304, 488, 75, 1, 23, "Print"],
+Cell[14382, 491, 75, 1, 23, "Print"],
+Cell[14460, 494, 73, 1, 23, "Print"],
+Cell[14536, 497, 73, 1, 23, "Print"],
+Cell[14612, 500, 73, 1, 23, "Print"],
+Cell[14688, 503, 73, 1, 23, "Print"],
+Cell[14764, 506, 73, 1, 23, "Print"],
+Cell[14840, 509, 73, 1, 23, "Print"],
+Cell[14916, 512, 73, 1, 23, "Print"],
+Cell[14992, 515, 73, 1, 23, "Print"],
+Cell[15068, 518, 73, 1, 23, "Print"],
+Cell[15144, 521, 73, 1, 23, "Print"],
+Cell[15220, 524, 73, 1, 23, "Print"],
+Cell[15296, 527, 73, 1, 23, "Print"],
+Cell[15372, 530, 73, 1, 23, "Print"],
+Cell[15448, 533, 73, 1, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15570, 540, 104, 4, 91, "Subtitle"],
+Cell[15677, 546, 3934, 145, 151, "Text"],
+Cell[CellGroupData[{
+Cell[19636, 695, 465, 13, 54, "Input"],
+Cell[20104, 710, 183, 5, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

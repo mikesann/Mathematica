@@ -1,0 +1,369 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13600,        360]
+NotebookOptionsPosition[     12629,        323]
+NotebookOutlinePosition[     12974,        338]
+CellTagsIndexPosition[     12931,        335]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Simple Task 6  ",
+  FontSize->36],
+ "Valerie Richmond CPS/Math 371 8am"
+}], "Subtitle",
+ CellChangeTimes->{{3.6012527534639387`*^9, 3.601252769727312*^9}, 
+   3.6012561511864676`*^9}],
+
+Cell[TextData[StyleBox["1.",
+ FontSize->24]], "Subsubtitle",
+ CellChangeTimes->{{3.6012527814261417`*^9, 3.601252787239554*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "The", " ", "Module", " ", "sums", " ", "the", " ", "cost", " ", "values",
+      " ", "associated", " ", "with", " ", "a", " ", "given", " ", "name", 
+     " ", "in", " ", "the", " ", "given", " ", 
+     RowBox[{"list", ".", " ", "A"}], " ", "loop", " ", "goes", " ", 
+     "through", " ", "all", " ", "elements", " ", "of", " ", "the", " ", 
+     "list", " ", "and"}], ",", " ", 
+    RowBox[{
+    "if", " ", "the", " ", "name", " ", "in", " ", "that", " ", "element", 
+     " ", "is", " ", "the", " ", "same", " ", "as", " ", "the", " ", "given", 
+     " ", "one"}], ",", " ", 
+    RowBox[{
+    "adds", " ", "the", " ", "cost", " ", "to", " ", "the", " ", "sum"}], ",",
+     " ", 
+    RowBox[{"then", " ", "returns", " ", "the", " ", "final", " ", 
+     RowBox[{"sum", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"purchases", "[", 
+    RowBox[{"listValues_", ",", " ", "sumName_"}], "]"}], " ", ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", "listValues"}], ",", " ", 
+       RowBox[{"sum", "=", "0"}], ",", " ", 
+       RowBox[{"name", "=", "sumName"}], ",", " ", "count"}], "}"}], ",", " ",
+      "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", 
+         RowBox[{"Length", "[", "list", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"count", ",", "1"}], "]"}], "]"}], "\[Equal]", "name"}], 
+          ",", " ", 
+          RowBox[{"sum", "=", 
+           RowBox[{"sum", "+", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", " ", "2"}], "]"}], "]"}]}]}]}], " ", 
+         "]"}]}], "\[IndentingNewLine]", "]"}], ";", " ", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "sum", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6012529489211416`*^9, 3.60125313183317*^9}, {
+  3.601253258386331*^9, 3.601253286176609*^9}, {3.6012537201399155`*^9, 
+  3.6012537232699156`*^9}, {3.6012537649799156`*^9, 3.6012538081899157`*^9}, {
+  3.6012556815558605`*^9, 3.601255730314885*^9}, {3.6012557731240287`*^9, 
+  3.601255773874014*^9}, {3.601337225608712*^9, 3.6013372400365887`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lst", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<claus\>\"", ",", " ", "13.2"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"\"\<tim\>\"", ",", " ", "2.45"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<claus\>\"", ",", " ", "24.99"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"\"\<april\>\"", ",", " ", "19.45"}], "}"}]}], "}"}]}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.601253312666874*^9, 3.6012533495272427`*^9}, {
+   3.6012534928486757`*^9, 3.6012535374089155`*^9}, {3.601253812659916*^9, 
+   3.6012538134399157`*^9}, 3.6013372073457117`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"purchases", "[", 
+  RowBox[{"lst", ",", " ", "\"\<uta\>\""}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"purchases", "[", 
+  RowBox[{"lst", ",", " ", "\"\<claus\>\""}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"purchases", "[", 
+  RowBox[{"lst", ",", " ", "3123"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"purchases", "[", 
+  RowBox[{"lst", ",", " ", "\"\<april\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6012532925866733`*^9, 3.6012533019267664`*^9}, {
+  3.6012538248898354`*^9, 3.6012538890191936`*^9}, {3.601337203659712*^9, 
+  3.6013372040627117`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.601253326957017*^9, 3.6012535417789154`*^9, 3.6012536511489153`*^9, 
+   3.6012537257499156`*^9, {3.6012537686899157`*^9, 3.6012538894991894`*^9}}],
+
+Cell[BoxData["38.19`"], "Output",
+ CellChangeTimes->{
+  3.601253326957017*^9, 3.6012535417789154`*^9, 3.6012536511489153`*^9, 
+   3.6012537257499156`*^9, {3.6012537686899157`*^9, 3.6012538894991894`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.601253326957017*^9, 3.6012535417789154`*^9, 3.6012536511489153`*^9, 
+   3.6012537257499156`*^9, {3.6012537686899157`*^9, 3.601253889509189*^9}}],
+
+Cell[BoxData["19.45`"], "Output",
+ CellChangeTimes->{
+  3.601253326957017*^9, 3.6012535417789154`*^9, 3.6012536511489153`*^9, 
+   3.6012537257499156`*^9, {3.6012537686899157`*^9, 3.601253889509189*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["2.",
+ FontSize->24]], "Subsubtitle",
+ CellChangeTimes->{{3.6012539184588995`*^9, 3.6012539190688934`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "Module", " ", "outputs", " ", "a", " ", "graph", " ", 
+     "modeling", " ", "the", " ", "path", " ", "of", " ", "a", " ", 
+     "notorious", " ", "drunk"}], ",", " ", 
+    RowBox[{"Jon", " ", 
+     RowBox[{"Smitty", ".", " ", "A"}], " ", "list", " ", "of", " ", "points",
+      " ", "is", " ", "constructed"}], ",", " ", 
+    RowBox[{
+    "with", " ", "the", " ", "first", " ", "having", " ", "an", " ", "x", " ",
+      "of", " ", "0", " ", "and", " ", "a", " ", "given", " ", "start", " ", 
+     RowBox[{"y", ".", " ", "Then"}]}], ",", " ", 
+    RowBox[{"for", " ", "every", " ", "successive", " ", "point"}], ",", " ", 
+    RowBox[{
+    "x", " ", "is", " ", "incremented", " ", "by", " ", "1", " ", "and", " ", 
+     "a", " ", "random", " ", "number", " ", "is", " ", "generated", " ", 
+     "to", " ", "determine", " ", "whether", " ", "y", " ", "is", " ", 
+     "increased", " ", "or", " ", "decreased", " ", "by", " ", "1.", " ", 
+     "As", " ", "many", " ", "steps", " ", "are", " ", "generated", " ", "as",
+      " ", "the", " ", "given", " ", "length"}], ",", " ", 
+    RowBox[{
+    "then", " ", "the", " ", "list", " ", "of", " ", "points", " ", "is", " ", 
+     RowBox[{"plotted", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"drunkwalk", "[", 
+    RowBox[{"ystart_", ",", " ", "length_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "=", "ystart"}], ",", 
+       RowBox[{"long", "=", "length"}], ",", "count", ",", " ", "int", ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"point", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", "point1"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"point1", "=", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "y"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list", ",", " ", "point1"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", "long"}], ",", " ", 
+        RowBox[{"count", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"point", ",", " ", "count"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"int", "=", " ", 
+          RowBox[{"RandomInteger", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1"}], "}"}], "]"}]}], ";", " ", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"int", "\[Equal]", "0"}], ",", " ", 
+           RowBox[{
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"point", "  ", ",", " ", 
+              RowBox[{"y", "+", "1"}]}], "]"}], ";", 
+            RowBox[{"y", "=", 
+             RowBox[{"y", "+", "1"}]}]}], ",", " ", 
+           RowBox[{
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"point", ",", " ", 
+              RowBox[{"y", "-", "1"}]}], "]"}], ";", 
+            RowBox[{"y", "=", 
+             RowBox[{"y", "-", "1"}]}]}]}], "]"}], ";", " ", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"list", ",", " ", "point"}], "]"}], ";", 
+         "\[IndentingNewLine]", " ", 
+         RowBox[{"point", "=", 
+          RowBox[{"{", "}"}]}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"list", ",", 
+         RowBox[{"Joined", "\[Rule]", "True"}], ",", " ", 
+         RowBox[{"PlotStyle", "\[Rule]", " ", "Green"}], ",", " ", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<time\>\"", ",", "\"\<height\>\""}], "}"}]}]}], "]"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6012541187068973`*^9, 3.601254119516889*^9}, {
+   3.6012542271558123`*^9, 3.6012542387856965`*^9}, {3.6012542992715845`*^9, 
+   3.601254328159562*^9}, {3.6012543815358257`*^9, 3.6012544618302045`*^9}, {
+   3.60125451631639*^9, 3.6012545432946014`*^9}, {3.601254632091937*^9, 
+   3.6012546684408464`*^9}, {3.6012547079396615`*^9, 
+   3.6012549937826157`*^9}, {3.601255081330865*^9, 3.601255186248767*^9}, 
+   3.6012552345977993`*^9, {3.6012553487146783`*^9, 3.601255351164605*^9}, {
+   3.601255456431447*^9, 3.60125547966075*^9}, {3.6012555153696785`*^9, 
+   3.6012555202795315`*^9}, {3.6012555691981077`*^9, 3.601255570818075*^9}, {
+   3.6012557900336905`*^9, 3.6012558145032015`*^9}, {3.601255853662418*^9, 
+   3.6012560523184447`*^9}, {3.6012560963775635`*^9, 
+   3.6012561079173326`*^9}, {3.6013372704059815`*^9, 
+   3.6013373091452065`*^9}, {3.6013376795691037`*^9, 3.601337701538664*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"drunkwalk", "[", 
+   RowBox[{"7", ",", "20"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6012549580033317`*^9, 3.601254967643139*^9}, {
+   3.601255204358404*^9, 3.6012552046683984`*^9}, 3.6012555982575264`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0, 1, 0], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBWIQjQpkHCD0B3sIrQDlMzigynNAaQkoLQClRdBoCTQa
+Jg4zB6ZPAU1eCU1eBc1eNTR5DTT9WmjyOmj69aA0zF8GaPKGaPqN0OSN0eRN
+4PIAQecQ5A==
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"time\"", TraditionalForm], 
+    FormBox["\"height\"", TraditionalForm]},
+  AxesOrigin->{0, 2.},
+  Method->{},
+  PlotRange->{{0, 20.}, {2., 8.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.4, 0.4}, {0.12, 0.12}}]], "Output",
+ CellChangeTimes->{{3.601255149859494*^9, 3.601255205158388*^9}, 
+   3.601255353714528*^9, {3.601255468051098*^9, 3.6012554734009376`*^9}, {
+   3.601255521689489*^9, 3.6012555295992517`*^9}, 3.6012555724980416`*^9, {
+   3.601337703308629*^9, 3.6013377119784555`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"drunkwalk", "[", 
+  RowBox[{"2", ",", " ", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601255535019089*^9, 3.601255546138756*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0, 1, 0], 
+    LineBox[{{0., 2.}, {1., 1.}, {2., 2.}, {3., 1.}, {4., 2.}, {5., 
+     3.}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"time\"", TraditionalForm], 
+    FormBox["\"height\"", TraditionalForm]},
+  AxesOrigin->{0, 1.},
+  Method->{},
+  PlotRange->{{0, 5.}, {1., 3.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.1, 0.1}, {0.04, 0.04}}]], "Output",
+ CellChangeTimes->{{3.6012555465587425`*^9, 3.6012555904476824`*^9}, {
+  3.601337715358388*^9, 3.60133776825733*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{531, 609},
+WindowMargins->{{Automatic, 67}, {-18, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 210, 6, 73, "Subtitle"],
+Cell[792, 30, 128, 2, 44, "Subsubtitle"],
+Cell[923, 34, 2552, 59, 332, "Input"],
+Cell[3478, 95, 689, 17, 72, "Input"],
+Cell[CellGroupData[{
+Cell[4192, 116, 584, 11, 92, "Input"],
+Cell[4779, 129, 199, 3, 31, "Output"],
+Cell[4981, 134, 204, 3, 31, "Output"],
+Cell[5188, 139, 197, 3, 31, "Output"],
+Cell[5388, 144, 202, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5627, 152, 130, 2, 44, "Subsubtitle"],
+Cell[5760, 156, 4903, 105, 572, "Input"],
+Cell[CellGroupData[{
+Cell[10688, 265, 267, 5, 52, "Input"],
+Cell[10958, 272, 838, 20, 247, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11833, 297, 156, 3, 31, "Input"],
+Cell[11992, 302, 597, 16, 245, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

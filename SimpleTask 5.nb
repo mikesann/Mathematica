@@ -1,0 +1,390 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13555,        381]
+NotebookOptionsPosition[     12758,        349]
+NotebookOutlinePosition[     13121,        365]
+CellTagsIndexPosition[     13078,        362]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Simple Task 5  8am CPS/Math371 Valerie Richmond\
+\>", "Subtitle",
+ CellChangeTimes->{{3.600984830300824*^9, 3.6009848502208242`*^9}, {
+  3.6009856233718033`*^9, 3.6009856242818036`*^9}, {3.601159835622372*^9, 
+  3.6011598412847366`*^9}}],
+
+Cell["1.", "Subsubtitle",
+ CellChangeTimes->{{3.600984878800824*^9, 3.6009848788608246`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "These", " ", "Modules", " ", "go", " ", "through", " ", "the", " ", 
+     "numbers", " ", "between", " ", "the", " ", "given", " ", "boundary", 
+     " ", "numbers", " ", "and"}], ",", " ", 
+    RowBox[{"for", " ", "each"}], ",", " ", 
+    RowBox[{
+    "add", " ", "to", " ", "the", " ", "resulting", " ", "list", " ", "a", 
+     " ", "list", " ", "of", " ", "the", " ", "number", " ", "and", " ", 
+     "the", " ", "sum", " ", "of", " ", "the", " ", 
+     RowBox[{"digits", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"getSumDigitsList", "[", 
+    RowBox[{"start_", ",", "stop_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"low", "=", "start"}], ",", " ", 
+       RowBox[{"end", "=", "stop"}], ",", " ", 
+       RowBox[{"resList", "=", 
+        RowBox[{"{", "}"}]}], ",", "digitList"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"low", "\[LessEqual]", "end"}], ",", " ", 
+        RowBox[{
+         RowBox[{"digitList", "=", 
+          RowBox[{"getList", "[", "low", "]"}]}], ";", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"resList", ",", " ", "digitList"}], "]"}], ";", 
+         RowBox[{"low", "++"}]}]}], "]"}], ";", 
+      RowBox[{"Return", "[", "resList", "]"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6009848926208243`*^9, 3.6009849634608245`*^9}, {
+   3.6009850202908244`*^9, 3.6009850556808243`*^9}, {3.6009851072208242`*^9, 
+   3.6009851076908245`*^9}, {3.6009854974710026`*^9, 
+   3.6009855136611648`*^9}, {3.601158901989127*^9, 3.601159002766572*^9}, {
+   3.601159041236172*^9, 3.6011590522653723`*^9}, 3.6011610738700895`*^9}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"For", " ", "use", " ", "in", " ", "getSumDigitsList"}], ",", " ", 
+   RowBox[{
+   "this", " ", "Module", " ", "returns", " ", "a", " ", "list", " ", "of", 
+    " ", "a", " ", "given", " ", "number", " ", "and", " ", "the", " ", "sum",
+     " ", "of", " ", "its", " ", 
+    RowBox[{"digits", "."}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.601159055853372*^9, 3.6011590809381723`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getList", "[", "number_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"num", "=", "number"}], ",", 
+      RowBox[{"resList", "=", 
+       RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"resList", ",", " ", "num"}], "]"}], ";", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"resList", ",", " ", 
+       RowBox[{"Total", "[", 
+        RowBox[{"IntegerDigits", "[", "num", "]"}], "]"}]}], "]"}], ";", 
+     RowBox[{"Return", "[", "resList", "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6009851169608245`*^9, 3.600985165840824*^9}, {
+  3.6009853517942505`*^9, 3.600985371519223*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"getSumDigitsList", "[", 
+   RowBox[{"187", ",", "203"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.600985517961208*^9, 3.60098553217135*^9}, {
+  3.601161024360173*^9, 3.6011610474551735`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"187", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"188", ",", "17"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"189", ",", "18"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"190", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"191", ",", "11"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"192", ",", "12"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"193", ",", "13"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"194", ",", "14"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"195", ",", "15"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"196", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"197", ",", "17"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"198", ",", "18"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"199", ",", "19"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"200", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"201", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"202", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"203", ",", "5"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6009855327213554`*^9, {3.6011610298661733`*^9, 3.6011610480161734`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.", "Subsubtitle",
+ CellChangeTimes->{{3.600985612351804*^9, 3.6009856124218035`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "Module", " ", "shows", " ", "a", " ", "graph", " ", "of", 
+    " ", "the", " ", "points", " ", "in", " ", "a", " ", "given", " ", 
+    RowBox[{"list", ".", " ", "The"}], " ", "points", " ", "are", " ", 
+    "joined", " ", "and", " ", "those", " ", "with", " ", "a", " ", "y", " ", 
+    "of", " ", "4", " ", "or", " ", "7", " ", "are", " ", 
+    RowBox[{"yellow", ".", " ", "The"}], " ", "rest", " ", "are", " ", 
+    RowBox[{"red", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"plotList", "[", "numList_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"count", ",", " ", 
+       RowBox[{"list", "=", "numList"}], ",", " ", 
+       RowBox[{"yellowList", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"redList", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "Each", " ", "element", " ", "in", " ", "the", " ", "given", " ", 
+        "list", " ", "is", " ", "added", " ", "to", " ", "the", " ", 
+        "appropriate", " ", 
+        RowBox[{"list", ":", " ", 
+         RowBox[{
+         "yellow", " ", "if", " ", "the", " ", "y", " ", "is", " ", "4", " ", 
+          "or", " ", "7"}]}]}], ",", " ", 
+       RowBox[{"and", " ", "red", " ", 
+        RowBox[{"otherwise", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", 
+         RowBox[{"Length", "[", "list", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", " ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", "2"}], "]"}], "]"}], "\[Equal]", "4"}], "||", 
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", "2"}], "]"}], "]"}], "\[Equal]", "7"}]}], 
+          ",", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"yellowList", ",", " ", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "count", "]"}], "]"}]}], "]"}], ",", " ", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"redList", ",", " ", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "count", "]"}], "]"}]}], "]"}]}], " ", "]"}]}], " ",
+        "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "The", " ", "lists", " ", "are", " ", "shown", " ", "with", " ", 
+         "their", " ", "characteristic", " ", "colors"}], ",", " ", "sizes", 
+        ",", " ", 
+        RowBox[{"and", " ", 
+         RowBox[{"connections", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"list", ",", "yellowList", ",", " ", "redList"}], "}"}], 
+         ",", 
+         RowBox[{"Joined", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", " ", "False", ",", " ", "False"}], "}"}]}], 
+         ",", " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Directive", "[", "Green", "]"}], ",", " ", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Yellow", ",", " ", 
+              RowBox[{"PointSize", "\[Rule]", " ", "0.035"}]}], "]"}], ",", 
+            " ", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Red", ",", 
+              RowBox[{"PointSize", "\[Rule]", ".025"}]}], "]"}]}], "}"}]}]}], 
+        "]"}], "]"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.601159363750572*^9, 3.6011593886793723`*^9}, {
+  3.601159423560972*^9, 3.601159510343772*^9}, {3.601159578515727*^9, 
+  3.6011595851300845`*^9}, {3.6011596489804754`*^9, 3.6011596711167336`*^9}, {
+  3.6011598713748217`*^9, 3.601159872217157*^9}, {3.6011599309934354`*^9, 
+  3.6011599336452312`*^9}, {3.601159980940793*^9, 3.6011599867437696`*^9}, {
+  3.601160041388468*^9, 3.601160163952954*^9}, {3.601160206149331*^9, 
+  3.6011602277389*^9}, {3.601160297234541*^9, 3.6011603387765417`*^9}, {
+  3.6011607450083294`*^9, 3.6011607621835995`*^9}, {3.601160850711897*^9, 
+  3.601160938273013*^9}, {3.601161104352099*^9, 3.6011611933957577`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ST5lst", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"5", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"6", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"9", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"11", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"12", ",", "7"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"13", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"14", ",", "7"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"15", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"16", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"17", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"18", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"19", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"20", ",", "5"}], "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"plotList", "[", "ST5lst", "]"}]}], "Input",
+ CellChangeTimes->{{3.601159549686972*^9, 3.6011595635241723`*^9}, 
+   3.601160765584334*^9, {3.6011612140498924`*^9, 3.601161219088628*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0, 1, 0], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBWIQjQpEHCD0B3sILQHlMzigynNAaQE0mgNNHUxcAk1c
+Bk1eAU2/Epq8Cpp+NTRzNdDM1UKT10GT10OTN0Az3xDNfiM0eWM0eRO4PAAn
+zxEY
+      "]]}, 
+    {RGBColor[1, 1, 0], PointSize[0.035], 
+     PointBox[{{3., 4.}, {5., 4.}, {7., 4.}, {9., 4.}, {12., 7.}, {14., 7.}, {
+      17., 4.}, {19., 4.}}]}, 
+    {RGBColor[1, 0, 0], PointSize[0.025], 
+     PointBox[{{0., 5.}, {1., 6.}, {2., 5.}, {4., 3.}, {6., 5.}, {8., 3.}, {
+      10., 5.}, {11., 6.}, {13., 6.}, {15., 6.}, {16., 5.}, {18., 5.}, {20., 
+      5.}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 3.},
+  Method->{},
+  PlotRange->{{0, 20.}, {3., 7.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.4, 0.4}, {0.08, 0.08}}]], "Output",
+ CellChangeTimes->{
+  3.601159571121372*^9, 3.6011596799930763`*^9, {3.601160748736658*^9, 
+   3.6011607708414326`*^9}, 3.601160925528058*^9, {3.6011612115695243`*^9, 
+   3.6011612160154676`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{658, 505},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 247, 5, 56, "Subtitle"],
+Cell[829, 29, 93, 1, 33, "Subsubtitle"],
+Cell[925, 32, 1797, 41, 172, "Input"],
+Cell[2725, 75, 440, 9, 72, "Input"],
+Cell[3168, 86, 746, 19, 72, "Input"],
+Cell[CellGroupData[{
+Cell[3939, 109, 249, 5, 52, "Input"],
+Cell[4191, 116, 1200, 38, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5428, 159, 93, 1, 33, "Subsubtitle"],
+Cell[5524, 162, 4383, 100, 392, "Input"],
+Cell[CellGroupData[{
+Cell[9932, 266, 1730, 51, 112, "Input"],
+Cell[11665, 319, 1053, 25, 282, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

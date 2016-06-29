@@ -1,0 +1,1322 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     52935,       1313]
+NotebookOptionsPosition[     50958,       1243]
+NotebookOutlinePosition[     51300,       1258]
+CellTagsIndexPosition[     51257,       1255]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Homework 5", "Title",
+ CellChangeTimes->{{3.6027055234572754`*^9, 3.6027055358748755`*^9}}],
+
+Cell["\<\
+Ben Riley and Valerie Richmond  CPS 371  March 7th\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6027055455000753`*^9, 3.6027055658580756`*^9}}],
+
+Cell["1.", "Section",
+ CellChangeTimes->{{3.6027055811616755`*^9, 3.6027055812396755`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["2.", "Section",
+ CellChangeTimes->{{3.6027055886964755`*^9, 3.6027055887744756`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+List Initializations used for Testing (Copied from Instructions)\
+\>", "Subsection",
+ CellChangeTimes->{{3.6027795904780507`*^9, 3.602779598677969*^9}, {
+  3.602779629997656*^9, 3.6027796336176195`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sudokuFilled", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1", ",", "3", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "3", ",", "1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2", ",", "4", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4", ",", "2", ",", "3"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sudokuPartialWith10", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\< \>\"", ",", "1", ",", "\"\< \>\"", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "\"\< \>\"", " ", ",", "1", ",", "\"\< \>\""}], "}"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "\"\< \>\"", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4", ",", "2", ",", "\"\< \>\""}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sudokuPartialWith12", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "\"\< \>\"", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "2", " ", ",", "1", ",", "\"\< \>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "3", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4", ",", "2", ",", "\"\< \>\""}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sudokuPartialWith7", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\< \>\"", ",", "1", ",", "\"\< \>\"", ",", "\"\< \>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "\"\< \>\"", " ", ",", "1", ",", "\"\< \>\""}], "}"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\< \>\"", ",", "2", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "\"\< \>\"", ",", "2", ",", "\"\< \>\""}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "\"\<2\>\"", " ", "in", " ", "the", " ", "last", " ", "list", 
+    " ", "was", " ", "changed", " ", "to", " ", "just", " ", "2."}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.602779606317892*^9, 3.602779621157744*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["a.", "Subsection",
+ CellChangeTimes->{{3.6027056671958756`*^9, 3.6027056683190756`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "function", " ", "returns", " ", "a", " ", "boolean", " ", 
+    "as", " ", "to", " ", "whether", " ", "or", " ", "not", " ", "the", " ", 
+    "given", " ", "list", " ", "contains", " ", "the", " ", "numbers", " ", 
+    "1", " ", "through", " ", "4", " ", "only", " ", "once", " ", 
+    RowBox[{"each", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"eachAtMostOnce", "[", "lst_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", "lst"}], ",", " ", 
+       RowBox[{"tallyList", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"valid", "=", "True"}], ",", " ", "count"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Tally", " ", "creates", " ", "a", " ", "new", " ", "list", " ", "of", 
+       " ", "lists", " ", "conatining", " ", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"unique", " ", "element"}], ",", " ", 
+          RowBox[{"number", " ", "of", " ", "its", " ", "occurences"}]}], 
+         "}"}], "."}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"tallyList", "=", 
+       RowBox[{"Tally", "[", "list", "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "If", " ", "the", " ", "list", " ", "is", " ", "not", " ", "4"}], ",",
+         " ", 
+        RowBox[{"then", " ", "it", " ", "is", " ", "not", " ", 
+         RowBox[{"valid", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{
+          RowBox[{"Length", "[", "list", "]"}], "==", "4"}]}], ",", " ", 
+        RowBox[{"valid", "=", "False"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "The", " ", "loop", " ", "goes", " ", "through", " ", "ever", " ", 
+         "element", " ", "in", " ", "the", " ", "tally", " ", 
+         RowBox[{"list", ".", " ", "For"}], " ", "each"}], ",", " ", 
+        RowBox[{
+        "if", " ", "it", " ", "is", " ", "not", " ", "blank", " ", "and", " ",
+          "it", " ", "the", " ", "number", " ", "of", " ", "occurences", " ", 
+         "is", " ", "greater", " ", "than", " ", "one"}], ",", " ", 
+        RowBox[{"then", " ", "it", " ", "is", " ", "not", " ", 
+         RowBox[{"valid", ".", " ", "If"}], " ", "it", " ", "is", " ", "not", 
+         " ", "a", " ", "space", " ", "or", " ", "1"}], ",", "2", ",", "3", 
+        ",", " ", 
+        RowBox[{"or", " ", "4"}], ",", " ", 
+        RowBox[{"then", " ", "it", " ", "is", " ", "not", " ", 
+         RowBox[{"valid", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "tallyList", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{
+              RowBox[{"tallyList", "[", 
+               RowBox[{"[", 
+                RowBox[{"count", ",", " ", "1"}], "]"}], "]"}], "\[Equal]", 
+              "\"\< \>\""}]}], " ", "&&", 
+            RowBox[{
+             RowBox[{"tallyList", "[", 
+              RowBox[{"[", 
+               RowBox[{"count", ",", "2"}], "]"}], "]"}], ">", "1"}]}], ",", 
+           " ", 
+           RowBox[{"valid", "=", "False"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{
+              RowBox[{"tallyList", "[", 
+               RowBox[{"[", 
+                RowBox[{"count", ",", "1"}], "]"}], "]"}], "\[Equal]", 
+              "\"\< \>\""}]}], "&&", 
+            RowBox[{"!", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"IntegerQ", "[", 
+                RowBox[{"tallyList", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"count", ",", "1"}], "]"}], "]"}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"tallyList", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"count", ",", "1"}], "]"}], "]"}], "\[LessEqual]", 
+                " ", "4"}], " ", "&&", " ", 
+               RowBox[{
+                RowBox[{"tallyList", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"count", ",", "1"}], "]"}], "]"}], 
+                "\[GreaterEqual]", " ", "0"}]}], ")"}]}]}], ",", " ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"valid", "=", "False"}]}], " ", "\[IndentingNewLine]", 
+          "]"}]}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "valid", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6027716902702723`*^9, 3.602771718279977*^9}, {
+  3.602771748949363*^9, 3.602771758049181*^9}, {3.602771796648409*^9, 
+  3.602771977754787*^9}, {3.602772017074004*^9, 3.6027721636435385`*^9}, {
+  3.6027722335528393`*^9, 3.6027722946122284`*^9}, {3.6027723289118853`*^9, 
+  3.6027724095210795`*^9}, {3.602772857506287*^9, 3.6027728680660763`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{"3", ",", "4", ",", "1", ",", "2"}], "}"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "\"\< \>\"", ",", " ", "\"\< \>\"", ",", " ", "\"\< \>\"", ",", " ", 
+    "\"\< \>\""}], "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "\"\< \>\"", ",", " ", "\"\<hey\>\"", ",", " ", "3", ",", " ", "4"}], 
+   "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{"3", ",", "4", ",", "1", ",", "2", ",", "\"\< \>\""}], "}"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{"2", ",", "4", ",", "1"}], "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"eachAtMostOnce", "[", 
+  RowBox[{"{", 
+   RowBox[{"2", ",", "4", ",", "1", ",", "1"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6027744399202423`*^9, 3.60277454213022*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424702168`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424802165`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424802165`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424902163`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424902163`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.602774453430107*^9, 3.6027745424902163`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["b.", "Subsection",
+ CellChangeTimes->{{3.6027064525850754`*^9, 3.6027064526530757`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "function", " ", "is", " ", "given", " ", "a", " ", "list", 
+    " ", "of", " ", "Soduko", " ", "entries", " ", "and", " ", "returns", " ",
+     "a", " ", "boolean", " ", "representing", " ", "its", " ", 
+    RowBox[{"validity", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"consistentPuzzle", "[", "entries_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bigList", "=", "entries"}], ",", " ", 
+       RowBox[{"valid", "=", "True"}], ",", " ", "count", ",", "block", ",", 
+       " ", "innerCount", ",", " ", 
+       RowBox[{"miniList", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "If", " ", "the", " ", "list", " ", "is", " ", "4", " ", "by", " ", 
+        "4"}], ",", " ", 
+       RowBox[{"then", " ", "process", " ", 
+        RowBox[{"it", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Dimensions", "[", "bigList", "]"}], "\[Equal]", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "4"}], "}"}]}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "The", " ", "loop", " ", "calls", " ", "getBlock", " ", "four", " ", 
+          "times", " ", "and", " ", "adjusts", " ", "the", " ", "valid", " ", 
+          "boolean", " ", "if", " ", "the", " ", "resulting", " ", "list", 
+          " ", "is", " ", "not", " ", "valid", " ", 
+          RowBox[{"itself", "."}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"count", "=", "1"}], ",", " ", 
+           RowBox[{"count", "\[LessEqual]", "4"}], ",", " ", 
+           RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"block", "=", 
+             RowBox[{"getBlock", "[", 
+              RowBox[{"bigList", ",", " ", "count"}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"!", 
+               RowBox[{"eachAtMostOnce", "[", "block", "]"}]}], ",", " ", 
+              RowBox[{"valid", "=", "False"}]}], "]"}]}]}], 
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "The", " ", "loop", " ", "goes", " ", "through", " ", "ever", " ", 
+           "element", " ", "in", " ", "the", " ", 
+           RowBox[{"bigList", "."}]}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"count", "=", "1"}], ",", " ", 
+           RowBox[{"count", "\[LessEqual]", " ", "4"}], ",", " ", 
+           RowBox[{"count", "++"}], ",", " ", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"For", " ", "each"}], ",", " ", 
+             RowBox[{
+             "if", " ", "it", " ", "is", " ", "not", " ", "a", " ", "valid", 
+              " ", "list", " ", "itself"}], ",", " ", 
+             RowBox[{"then", " ", "the", " ", "whole", " ", "list", " ", 
+              RowBox[{"isn", "'"}], "t", " ", 
+              RowBox[{"valid", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"!", 
+               RowBox[{"eachAtMostOnce", "[", 
+                RowBox[{"bigList", "[", 
+                 RowBox[{"[", "count", "]"}], "]"}], "]"}]}], ",", " ", 
+              RowBox[{"valid", "=", "False"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "This", " ", "loop", " ", "constructs", " ", "miniLists", " ", 
+              "representing", " ", "the", " ", 
+              RowBox[{"board", "'"}], "s", " ", 
+              RowBox[{"columns", ".", " ", "by"}], " ", "finding", " ", "the",
+               " ", "elements", " ", "at", " ", "the", " ", "count", " ", 
+              "position", " ", "in", " ", "the", " ", "innerCount", " ", 
+              "list", " ", "of", " ", 
+              RowBox[{"bigList", "."}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"For", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"innerCount", "=", "1"}], ";", " ", 
+               RowBox[{"miniList", "=", 
+                RowBox[{"{", "}"}]}]}], ",", " ", 
+              RowBox[{"innerCount", "\[LessEqual]", "4"}], ",", " ", 
+              RowBox[{"innerCount", "++"}], ",", " ", "\[IndentingNewLine]", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"miniList", ",", " ", 
+                RowBox[{"bigList", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"innerCount", ",", " ", "count"}], "]"}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"If", " ", "the", " ", "miniList", " ", 
+              RowBox[{"(", "columns", ")"}], " ", "are", " ", "not", " ", 
+              "valid", " ", "than", " ", "the", " ", "whole", " ", "list", 
+              " ", "is", " ", 
+              RowBox[{"not", "."}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"!", 
+               RowBox[{"eachAtMostOnce", "[", "miniList", "]"}]}], ",", " ", 
+              RowBox[{"valid", "=", "False"}]}], "]"}]}]}], 
+          "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+          "If", " ", "the", " ", "dimensions", " ", "were", " ", "not", " ", 
+           "4", " ", "by", " ", "4"}], ",", " ", 
+          RowBox[{
+          "then", " ", "the", " ", "Sudoku", " ", "was", " ", "not", " ", 
+           RowBox[{"valid", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"valid", "\[Equal]", "False"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "valid", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6027068603453727`*^9, 3.6027068753313723`*^9}, {
+   3.6027071097550187`*^9, 3.6027071721237717`*^9}, {3.602707220352807*^9, 
+   3.602707459969776*^9}, {3.6027074978093977`*^9, 3.6027075813285627`*^9}, {
+   3.6027725326098485`*^9, 3.6027725399197755`*^9}, 3.6027725760094147`*^9, {
+   3.602772738207673*^9, 3.6027727810368166`*^9}, {3.6027728895256467`*^9, 
+   3.6027729301048355`*^9}, {3.6027734256289186`*^9, 3.602773426358911*^9}, {
+   3.6027734622795515`*^9, 3.6027734652995214`*^9}, {3.602773884770526*^9, 
+   3.6027739058694706`*^9}, {3.60277401632796*^9, 3.60277403972396*^9}, {
+   3.602774085524577*^9, 3.6027742403714805`*^9}, {3.602774300250283*^9, 
+   3.602774319139905*^9}, {3.6027743497512937`*^9, 3.6027743676509647`*^9}, {
+   3.6027745510601306`*^9, 3.6027746814788265`*^9}, {3.602774721348428*^9, 
+   3.6027747523281183`*^9}, 3.6027767697244205`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "function", " ", "returns", " ", "the", " ", "list", " ", 
+     "of", " ", "elements", " ", "which", " ", "would", " ", "appear", " ", 
+     "in", " ", "the", " ", "count", " ", "block", " ", "of", " ", "the", " ",
+      "given", " ", "Sudoku", " ", 
+     RowBox[{"list", ".", " ", "Block"}], " ", "1", " ", "is", " ", 
+     "topleft"}], ",", " ", 
+    RowBox[{"topright", " ", "is", " ", "2"}], ",", " ", 
+    RowBox[{"bottom", " ", "left", " ", "is", " ", "3"}], ",", " ", 
+    RowBox[{
+    "bottom", " ", "right", " ", "is", " ", "4.", " ", "It", " ", "is", " ", 
+     "used", " ", "in", " ", "parts", " ", "b", " ", "and", " ", 
+     RowBox[{"d", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"getBlock", "[", 
+    RowBox[{"lst_", ",", " ", "number_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", "lst"}], ",", " ", 
+       RowBox[{"num", "=", "number"}], ",", " ", 
+       RowBox[{"block", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"num", "\[Equal]", "2"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"block", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "3"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "4"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "3"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "4"}], "]"}], "]"}]}], "}"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"num", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"block", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "1"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "2"}], "]"}], "]"}]}], "}"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"num", "==", "3"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"block", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"3", ",", "1"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"3", ",", "2"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"4", ",", "1"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"4", ",", "2"}], "]"}], "]"}]}], "}"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"num", "==", "4"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"block", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"3", ",", "3"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"3", ",", "4"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"4", ",", "3"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"list", "[", 
+            RowBox[{"[", 
+             RowBox[{"4", ",", "4"}], "]"}], "]"}]}], "}"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "block", "]"}]}]}], "\[IndentingNewLine]", " ", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6027747931277103`*^9, 3.6027748378872623`*^9}, {
+  3.6027749577967067`*^9, 3.602775054007578*^9}, {3.6027756932421856`*^9, 
+  3.6027757361717567`*^9}, {3.6027758155708494`*^9, 3.602775997571749*^9}, {
+  3.602776052399008*^9, 3.6027760526989927`*^9}, {3.6027766221458964`*^9, 
+  3.602776627585842*^9}, {3.6027768192939253`*^9, 3.6027768198539195`*^9}, {
+  3.602777167784894*^9, 3.602777205164894*^9}, {3.602782278034403*^9, 
+  3.6027822943242407`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"consistentPuzzle", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1", ",", "3", ",", "4"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"4", ",", "3", ",", "1", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "2", ",", "4", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "4", ",", "2", ",", "3"}], "}"}]}], "}"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"consistentPuzzle", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "\"\< \>\"", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "2", " ", ",", "1", ",", "\"\< \>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "3", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4", ",", "2", ",", "\"\< \>\""}], "}"}]}], "}"}], 
+   "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Block", " ", "one", " ", "is", " ", 
+    RowBox[{"invalid", "--"}], "it", " ", "has", " ", "2", " ", "threes"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"consistentPuzzle", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "\"\< \>\"", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "3", " ", ",", "1", ",", "\"\< \>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "3", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4", ",", "2", ",", "\"\< \>\""}], "}"}]}], "}"}], 
+   "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Column", " ", "two", " ", "is", " ", 
+    RowBox[{"invalid", "--"}], "it", " ", "has", " ", "2", " ", "twos"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"consistentPuzzle", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"3", ",", "2", ",", "\"\< \>\"", ",", "4"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"4", ",", "2", " ", ",", "1", ",", "\"\< \>\""}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3", ",", "\"\< \>\"", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "4", ",", "2", ",", "\"\< \>\""}], "}"}]}], "}"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6027766656254616`*^9, 3.602776682625292*^9}, {
+  3.602776831093894*^9, 3.602776871373894*^9}, {3.602776915154894*^9, 
+  3.602776941994894*^9}, {3.602777017494894*^9, 3.602777109894894*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.602776683195286*^9, 3.6027767742443757`*^9, {3.602776826263894*^9, 
+   3.6027768486538944`*^9}, 3.6027769365148945`*^9, 3.6027770378848944`*^9, 
+   3.6027771130948944`*^9, 3.602777228894894*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.602776683195286*^9, 3.6027767742443757`*^9, {3.602776826263894*^9, 
+   3.6027768486538944`*^9}, 3.6027769365148945`*^9, 3.6027770378848944`*^9, 
+   3.6027771130948944`*^9, 3.602777228904894*^9}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{
+  3.602776683195286*^9, 3.6027767742443757`*^9, {3.602776826263894*^9, 
+   3.6027768486538944`*^9}, 3.6027769365148945`*^9, 3.6027770378848944`*^9, 
+   3.6027771130948944`*^9, 3.6027772289248943`*^9}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{
+  3.602776683195286*^9, 3.6027767742443757`*^9, {3.602776826263894*^9, 
+   3.6027768486538944`*^9}, 3.6027769365148945`*^9, 3.6027770378848944`*^9, 
+   3.6027771130948944`*^9, 3.602777228934894*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["c.", "Subsection",
+ CellChangeTimes->{{3.602777711237006*^9, 3.602777711317005*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "function", " ", "takes", " ", "in", " ", "two", " ", 
+     "lists"}], ",", " ", 
+    RowBox[{
+    "a", " ", "solution", " ", "and", " ", "a", " ", "partially", " ", 
+     "completed", " ", 
+     RowBox[{"puzzle", ".", " ", "It"}], " ", "returns", " ", "two", " ", 
+     "lists"}], ",", " ", 
+    RowBox[{
+    "one", " ", "which", " ", "includes", " ", "the", " ", "indices", " ", 
+     "of", " ", "incorrect", " ", "numbers"}], ",", " ", 
+    RowBox[{
+    "and", " ", "one", " ", "with", " ", "indicies", " ", "of", " ", "the", 
+     " ", "blank", " ", "squares", " ", "of", " ", "the", " ", "partial", " ",
+      "given", " ", 
+     RowBox[{"list", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"correctPuzzle", "[", 
+    RowBox[{"solution_", ",", " ", "entries_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"filled", "=", "solution"}], ",", " ", 
+       RowBox[{"partial", "=", "entries"}], ",", " ", "outer", ",", 
+       RowBox[{"emptyList", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", "inner", ",", " ", 
+       RowBox[{"errorList", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "The", " ", "nested", " ", "loops", " ", "go", " ", "through", " ", 
+       "every", " ", "element", " ", "in", " ", "each", " ", 
+       RowBox[{"list", "."}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"outer", "=", "1"}], ",", " ", 
+        RowBox[{"outer", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "partial", "]"}]}], ",", " ", 
+        RowBox[{"outer", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"inner", "=", "1"}], ",", " ", 
+          RowBox[{"inner", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", 
+            RowBox[{"partial", "[", 
+             RowBox[{"[", "outer", "]"}], "]"}], "]"}]}], ",", " ", 
+          RowBox[{"inner", "++"}], ",", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{
+            "If", " ", "the", " ", "element", " ", "is", " ", "a", " ", 
+             "number", " ", "and", " ", "is", " ", "not", " ", "the", " ", 
+             "one", " ", "present", " ", "in", " ", "the", " ", "solution", 
+             " ", "at", " ", "that", " ", "position"}], ",", " ", 
+            RowBox[{
+            "then", " ", "the", " ", "indices", " ", "are", " ", "added", " ",
+              "to", " ", "the", " ", 
+             RowBox[{"errorList", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"partial", "[", 
+                RowBox[{"[", 
+                 RowBox[{"outer", ",", "inner"}], "]"}], "]"}], "\[NotEqual]", 
+               RowBox[{"filled", "[", 
+                RowBox[{"[", 
+                 RowBox[{"outer", ",", "inner"}], "]"}], "]"}]}], " ", "&&", 
+              " ", 
+              RowBox[{
+               RowBox[{"partial", "[", 
+                RowBox[{"[", 
+                 RowBox[{"outer", ",", " ", "inner"}], "]"}], "]"}], 
+               "\[NotEqual]", "\"\< \>\""}]}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"errorList", ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"outer", ",", "inner"}], "}"}]}], "]"}]}], "]"}], ";",
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+             "If", " ", "the", " ", "element", " ", "is", " ", "blank"}], ",",
+              " ", 
+             RowBox[{
+             "then", " ", "its", " ", "indices", " ", "are", " ", "added", 
+              " ", "to", " ", "the", " ", "emptyList"}]}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"partial", "[", 
+               RowBox[{"[", 
+                RowBox[{"outer", ",", " ", "inner"}], "]"}], "]"}], "==", 
+              "\"\< \>\""}], ",", " ", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"emptyList", ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"outer", ",", "inner"}], "}"}]}], "]"}]}], 
+            "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"{", 
+        RowBox[{"errorList", ",", " ", "emptyList"}], "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6027777814963036`*^9, 3.602777798016138*^9}, {
+  3.60277808007987*^9, 3.6027781103795676`*^9}, {3.602779016716715*^9, 
+  3.6027790478770266`*^9}, {3.60277908124736*^9, 3.602779083347381*^9}, {
+  3.6027791643881917`*^9, 3.6027792731982517`*^9}, {3.6027793373892517`*^9, 
+  3.6027795563383923`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"correctPuzzle", "[", 
+  RowBox[{"sudokuFilled", ",", " ", "sudokuPartialWith12"}], "]"}]], "Input",
+ CellChangeTimes->{{3.602779278708252*^9, 3.6027793055282516`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "4"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6027793062282515`*^9, 3.6027793480392513`*^9, {3.6027794123592515`*^9, 
+   3.6027794250792513`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"correctPuzzle", "[", 
+  RowBox[{"sudokuFilled", ",", "sudokuFilled"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6027797418065376`*^9, 3.602779749936456*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6027797503164525`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["d.", "Subsection",
+ CellChangeTimes->{{3.6027797733062224`*^9, 3.6027797733962216`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "function"}], ",", " ", 
+    RowBox[{
+    "given", " ", "a", " ", "list", " ", "representing", " ", "a", " ", 
+     "Sudoku", " ", "board", " ", "and", " ", "a", " ", 
+     RowBox[{"square", "'"}], "s", " ", "indices"}], ",", " ", 
+    RowBox[{"returns", " ", "a", " ", "list", " ", "of", " ", "two", " ", 
+     RowBox[{"things", ".", " ", "The"}], " ", "first", " ", "is", " ", "a", 
+     " ", "boolean", " ", "as", " ", "to", " ", "whether", " ", "or", " ", 
+     "not", " ", "the", " ", "space", " ", "given", " ", "by", " ", "the", 
+     " ", "indices", " ", "is", " ", "filled", " ", "with", " ", "a", " ", 
+     "digit", " ", 
+     RowBox[{"already", ".", " ", "The"}], " ", "second", " ", "is", " ", "a",
+      " ", "list", " ", "of", " ", "possible", " ", "digits", " ", "that", 
+     " ", "could", " ", "validly", " ", "fill", " ", "the", " ", 
+     RowBox[{"space", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"fillPuzzleSlot", "[", 
+    RowBox[{"entries_", ",", " ", "row_", ",", " ", "col_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", "entries"}], ",", " ", 
+       RowBox[{"rowNum", "=", "row"}], ",", " ", 
+       RowBox[{"colNum", "=", "col"}], ",", " ", 
+       RowBox[{"finalPair", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"possValues", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"colNums", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"blockNums", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"rowNums", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", "count", ",", " ", 
+       RowBox[{"temp", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"fourNums", "=", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], ",", " ", 
+       "block"}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "The", " ", "exists", " ", "boolean", " ", "is", " ", "determined", " ",
+        "according", " ", "to", " ", "whether", " ", "the", " ", "space", " ",
+        "at", " ", "the", " ", "given", " ", "indices", " ", "is", " ", 
+       RowBox[{"filled", ".", " ", "It"}], " ", "is", " ", "added", " ", "to",
+        " ", "the", " ", 
+       RowBox[{"list", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"IntegerQ", "[", 
+          RowBox[{"list", "[", 
+           RowBox[{"[", 
+            RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}], "]"}], "&&", 
+         RowBox[{
+          RowBox[{"list", "[", 
+           RowBox[{"[", 
+            RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}], 
+          "\[LessEqual]", " ", "4"}], "&&", " ", 
+         RowBox[{
+          RowBox[{"list", "[", 
+           RowBox[{"[", 
+            RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}], 
+          "\[GreaterEqual]", "1"}]}], ",", " ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"finalPair", ",", " ", "True"}], "]"}], ",", " ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"finalPair", ",", " ", "False"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Finds", " ", "list", " ", "of", " ", "digits", " ", "that", " ", 
+        "are", " ", "not", " ", "in", " ", "the", " ", "same", " ", 
+        RowBox[{"row", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", " ", "\[LessEqual]", " ", "4"}], ",", " ", 
+        RowBox[{"count", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"IntegerQ", "[", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"rowNum", ",", " ", "count"}], "]"}], "]"}], "]"}], "&&", 
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"rowNum", ",", " ", "count"}], "]"}], "]"}], 
+            "\[LessEqual]", " ", "4"}], "&&", " ", 
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"rowNum", ",", " ", "count"}], "]"}], "]"}], 
+            "\[GreaterEqual]", "1"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"rowNums", ",", " ", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"rowNum", ",", " ", "count"}], "]"}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "If", " ", "a", " ", "digit", " ", "was", " ", "already", " ", "in", 
+         " ", "the", " ", "given", " ", "spot", " ", "then", " ", "it", " ", 
+         "should", " ", "be", " ", "counted", " ", "as", " ", "a", " ", 
+         "possible", " ", "digit"}], ",", " ", 
+        RowBox[{
+         RowBox[{
+         "so", " ", "we", " ", "delete", " ", "it", " ", "from", " ", "the", 
+          " ", "list", " ", "of", " ", "not"}], "-", 
+         RowBox[{"possible", " ", 
+          RowBox[{"numbers", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"rowNums", "=", " ", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{"rowNums", ",", " ", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", 
+           RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "rowNums", " ", "is", " ", "set", " ", "to", " ", "the", " ", 
+         "digits", " ", "of", " ", "1"}], ",", "2", ",", "3", ",", 
+        RowBox[{
+        "4", " ", "which", " ", "do", " ", "not", " ", "appear", " ", "in", 
+         " ", "the", " ", "row", " ", 
+         RowBox[{"already", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"temp", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"rowNums", ",", " ", "fourNums"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"rowNums", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", 
+         RowBox[{"Length", "[", "temp", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Count", "[", 
+            RowBox[{"temp", ",", " ", 
+             RowBox[{"temp", "[", 
+              RowBox[{"[", "count", "]"}], "]"}]}], "]"}], "\[Equal]", "1"}], 
+          ",", " ", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"rowNums", ",", " ", 
+            RowBox[{"temp", "[", 
+             RowBox[{"[", "count", "]"}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Finds", " ", "list", " ", "of", " ", "digits", " ", "that", " ", 
+        "are", " ", "not", " ", "in", " ", "the", " ", "same", " ", 
+        RowBox[{"column", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", " ", "\[LessEqual]", " ", "4"}], ",", " ", 
+        RowBox[{"count", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"IntegerQ", "[", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", " ", "colNum"}], "]"}], "]"}], "]"}], "&&", 
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", " ", "colNum"}], "]"}], "]"}], 
+            "\[LessEqual]", " ", "4"}], "&&", " ", 
+           RowBox[{
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", " ", "colNum"}], "]"}], "]"}], 
+            "\[GreaterEqual]", "1"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"colNums", ",", " ", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", 
+              RowBox[{"count", ",", " ", "colNum"}], "]"}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "colNums", " ", "is", " ", "set", " ", "to", " ", "the", " ", 
+         "digits", " ", "of", " ", "1"}], ",", "2", ",", "3", ",", 
+        RowBox[{
+        "4", " ", "which", " ", "do", " ", "not", " ", "appear", " ", "in", 
+         " ", "the", " ", "row", " ", 
+         RowBox[{"already", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"temp", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"colNums", ",", " ", "fourNums"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"colNums", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", 
+         RowBox[{"Length", "[", "temp", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Count", "[", 
+            RowBox[{"temp", ",", " ", 
+             RowBox[{"temp", "[", 
+              RowBox[{"[", "count", "]"}], "]"}]}], "]"}], "\[Equal]", "1"}], 
+          ",", " ", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"colNums", ",", " ", 
+            RowBox[{"temp", "[", 
+             RowBox[{"[", "count", "]"}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "If", " ", "a", " ", "digit", " ", "was", " ", "already", " ", "in", 
+         " ", "the", " ", "given", " ", "spot", " ", "then", " ", "it", " ", 
+         "should", " ", "be", " ", "counted", " ", "as", " ", "a", " ", 
+         "possible", " ", "digit"}], ",", " ", 
+        RowBox[{
+         RowBox[{
+         "so", " ", "we", " ", "delete", " ", "it", " ", "from", " ", "the", 
+          " ", "list", " ", "of", " ", "not"}], "-", 
+         RowBox[{"possible", " ", 
+          RowBox[{"numbers", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"colNums", "=", " ", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{"colNums", ",", " ", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", 
+           RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Finds", " ", "list", " ", "of", " ", "digits", " ", "that", " ", 
+        "are", " ", "not", " ", "in", " ", "the", " ", "same", " ", 
+        RowBox[{"block", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rowNum", "\[LessEqual]", "2"}], " ", "&&", "  ", 
+         RowBox[{"colNum", "\[LessEqual]", " ", "3"}]}], ",", 
+        RowBox[{"block", "=", "2"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rowNum", "\[LessEqual]", "3"}], " ", "&&", " ", 
+         RowBox[{"colNum", "\[LessEqual]", " ", "2"}]}], ",", " ", 
+        RowBox[{"block", "=", "1"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rowNum", "\[GreaterEqual]", " ", "3"}], "&&", 
+         RowBox[{"colNum", " ", "\[LessEqual]", " ", "3"}]}], ",", 
+        RowBox[{"block", "=", "3"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"rowNum", "\[GreaterEqual]", "3"}], " ", "&&", 
+         RowBox[{"colNum", "\[GreaterEqual]", "3"}]}], ",", " ", 
+        RowBox[{"block", "=", "4"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"blockNums", "=", 
+       RowBox[{"getBlock", "[", 
+        RowBox[{"list", ",", " ", "block"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "If", " ", "a", " ", "digit", " ", "was", " ", "already", " ", "in", 
+         " ", "the", " ", "given", " ", "spot", " ", "then", " ", "it", " ", 
+         "should", " ", "be", " ", "counted", " ", "as", " ", "a", " ", 
+         "possible", " ", "digit"}], ",", " ", 
+        RowBox[{
+         RowBox[{
+         "so", " ", "we", " ", "delete", " ", "it", " ", "from", " ", "the", 
+          " ", "list", " ", "of", " ", "not"}], "-", 
+         RowBox[{"possible", " ", 
+          RowBox[{"numbers", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"blockNums", "=", " ", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{"blockNums", ",", " ", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", 
+           RowBox[{"rowNum", ",", " ", "colNum"}], "]"}], "]"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "Sets", " ", "blockNums", " ", "to", " ", "the", " ", "list", " ", 
+         "of", " ", "digits", " ", "1"}], "-", 
+        RowBox[{
+        "4", " ", "which", " ", "are", " ", "not", " ", "present", " ", "in", 
+         " ", "the", " ", 
+         RowBox[{"block", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"temp", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"blockNums", ",", " ", "fourNums"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"blockNums", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "1"}], ",", " ", 
+        RowBox[{"count", "\[LessEqual]", 
+         RowBox[{"Length", "[", "temp", "]"}]}], ",", " ", 
+        RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Count", "[", 
+            RowBox[{"temp", ",", " ", 
+             RowBox[{"temp", "[", 
+              RowBox[{"[", "count", "]"}], "]"}]}], "]"}], "==", "1"}], ",", 
+          " ", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"blockNums", ",", " ", 
+            RowBox[{"temp", "[", 
+             RowBox[{"[", "count", "]"}], "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"possValues", "=", 
+       RowBox[{"Intersection", "[", 
+        RowBox[{"colNums", ",", " ", "blockNums", ",", " ", "rowNums"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"finalPair", ",", "possValues"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "finalPair", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.602779777796178*^9, 3.6027798277256784`*^9}, {
+   3.602779882496131*^9, 3.602780058064375*^9}, {3.6027800961139946`*^9, 
+   3.6027801510034456`*^9}, 3.6027801818231373`*^9, {3.602780213172824*^9, 
+   3.602780264632309*^9}, {3.6027803107718477`*^9, 3.602780480941146*^9}, {
+   3.6027806081798735`*^9, 3.6027806602893524`*^9}, {3.6027809366158605`*^9, 
+   3.60278094362551*^9}, {3.602781071269128*^9, 3.6027811908231497`*^9}, {
+   3.6027812941042595`*^9, 3.602781333723467*^9}, {3.6027813823324947`*^9, 
+   3.6027814120619*^9}, {3.6027815667402897`*^9, 3.6027815965399923`*^9}, {
+   3.602781694049017*^9, 3.6027818828071294`*^9}, 3.6027820416900663`*^9, {
+   3.6027820774070663`*^9, 3.602782260804576*^9}, {3.6027823210449734`*^9, 
+   3.602782366144522*^9}, {3.602782567950407*^9, 3.6027826087599993`*^9}, {
+   3.6027826688193984`*^9, 3.6027826736393504`*^9}, {3.6027827175189114`*^9, 
+   3.6027827380187063`*^9}, {3.6027828492275944`*^9, 3.602782855597531*^9}, {
+   3.6027829090169964`*^9, 3.602782927396813*^9}, {3.6027832836372504`*^9, 
+   3.6027833168969173`*^9}, {3.602784715667286*^9, 3.6027847380270624`*^9}, {
+   3.6027848974163713`*^9, 3.6027850938966775`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"fillPuzzleSlot", "[", 
+  RowBox[{"sudokuPartialWith7", ",", "1", ",", "4"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"fillPuzzleSlot", "[", 
+  RowBox[{"sudokuPartialWith10", ",", "3", ",", "3"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.602782393804246*^9, 3.602782408174102*^9}, {
+  3.602782525179826*^9, 3.60278255167057*^9}, {3.6027828761473255`*^9, 
+  3.6027828845572414`*^9}, {3.6027846533779087`*^9, 3.6027846875875664`*^9}, {
+  3.60278526910843*^9, 3.6027852694684334`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"False", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3", ",", "4"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6027824086040974`*^9, {3.6027825339007473`*^9, 3.602782579880288*^9}, {
+   3.6027826786793003`*^9, 3.6027826860292263`*^9}, 3.602782746178625*^9, {
+   3.602782857397513*^9, 3.602782932246764*^9}, 3.602784688667556*^9, 
+   3.602784739977043*^9, 3.6027850993067317`*^9, 3.6027852703884425`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"False", ",", 
+   RowBox[{"{", "4", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6027824086040974`*^9, {3.6027825339007473`*^9, 3.602782579880288*^9}, {
+   3.6027826786793003`*^9, 3.6027826860292263`*^9}, 3.602782746178625*^9, {
+   3.602782857397513*^9, 3.602782932246764*^9}, 3.602784688667556*^9, 
+   3.602784739977043*^9, 3.6027850993067317`*^9, 3.6027852703984423`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{615, 505},
+WindowMargins->{{2, Automatic}, {Automatic, 3}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 97, 1, 101, "Title"],
+Cell[679, 25, 148, 3, 56, "Subtitle"],
+Cell[830, 30, 91, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[946, 35, 91, 1, 56, "Section"],
+Cell[CellGroupData[{
+Cell[1062, 40, 213, 4, 49, "Subsection"],
+Cell[1278, 46, 2279, 62, 232, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3594, 113, 94, 1, 49, "Subsection"],
+Cell[3691, 116, 5337, 123, 592, "Input"],
+Cell[CellGroupData[{
+Cell[9053, 243, 989, 25, 132, "Input"],
+Cell[10045, 270, 99, 1, 31, "Output"],
+Cell[10147, 273, 99, 1, 31, "Output"],
+Cell[10249, 276, 100, 1, 31, "Output"],
+Cell[10352, 279, 100, 1, 31, "Output"],
+Cell[10455, 282, 100, 1, 31, "Output"],
+Cell[10558, 285, 100, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10707, 292, 94, 1, 49, "Subsection"],
+Cell[10804, 295, 7209, 149, 872, "Input"],
+Cell[18016, 446, 4720, 114, 512, "Input"],
+Cell[CellGroupData[{
+Cell[22761, 564, 2423, 61, 252, "Input"],
+Cell[25187, 627, 250, 4, 31, "Output"],
+Cell[25440, 633, 250, 4, 31, "Output"],
+Cell[25693, 639, 253, 4, 31, "Output"],
+Cell[25949, 645, 251, 4, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26249, 655, 90, 1, 49, "Subsection"],
+Cell[26342, 658, 5193, 120, 652, "Input"],
+Cell[CellGroupData[{
+Cell[31560, 782, 191, 3, 31, "Input"],
+Cell[31754, 787, 760, 25, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32551, 817, 179, 3, 31, "Input"],
+Cell[32733, 822, 155, 5, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32937, 833, 94, 1, 49, "Subsection"],
+Cell[33034, 836, 16462, 367, 1832, "Input"],
+Cell[CellGroupData[{
+Cell[49521, 1207, 508, 9, 52, "Input"],
+Cell[50032, 1218, 453, 9, 31, "Output"],
+Cell[50488, 1229, 418, 8, 63, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

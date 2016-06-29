@@ -1,0 +1,104 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4115,         95]
+NotebookOptionsPosition[      3654,         74]
+NotebookOutlinePosition[      4148,         94]
+CellTagsIndexPosition[      4105,         91]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["10. Valerie Richmond: Contribution Report",
+ FontFamily->"Gill Sans MT",
+ FontSize->24,
+ FontColor->RGBColor[
+  0.5019607843137255, 0.5019607843137255, 0.5019607843137255]]], "Title",
+ CellChangeTimes->{{3.6090086443577194`*^9, 3.609008674016719*^9}}],
+
+Cell["\<\
+I made the sin and random track option (and helped with the others), helped \
+debug the Play button, got some of the pictures incorporated as backgrounds, \
+got the cart to correctly display in 2D, made the Customize button and \
+window, set standards for how many points are needed for each level (and \
+added appropriate messages to let the user know the point standards--except \
+the Help Button, which Julia did), helped transition track options to 3D \
+(used Fit to find a line and points on it such that the z coordinates would \
+be in a line, assigned the x and y coordinates of the xyzList), made the \
+connection between the 3D and 2D lists so that the tracks relate (change one, \
+other displays the change too), made View button switch between 2D and 3D \
+(screens and the button name), made simple ViewAngle Pop up menu for \
+adjusting the angle from which you see the 3D track, changed physics (I know \
+by now not to say fixed) so that it no longer goes uphill in those weird \
+cases, changed the structure of the code and feedback messages such that the \
+user gets two chances at every level, formatted the 3D gamePlay screen, made \
+the 3D coins and implemented coin collection, modified the Locator code \
+Dr.Ziegler gave us to include multiple interconnected Locators (these are the \
+two graphs on the 3D view screen), made the cart slide along the 3D track \
+using some physics, smoothed out the feedBack[] method so it worked for 3D as \
+well, attempted to use rotate to get the 3D cuboid to rotate along with the \
+slope of the line\[LongDash]works but looks unrefined, and searched for an \
+option which would simulate support beams on the 3D parametric plot of the \
+track--got code to do that with a similar example from the Doc Center, but \
+couldn\[CloseCurlyQuote]t get it to dynamically combine with the track.
+
+
+Overall, I headed the play button/physics incorporation (gravity and \
+friction), track restrictions, and the level structure with coins. 
+
+Valerie Richmond
+\
+\>", "Text",
+ CellChangeTimes->{{3.609008628887719*^9, 3.609008631943719*^9}, {
+   3.6090086779757195`*^9, 3.6090086883367195`*^9}, {3.6090719867498903`*^9, 
+   3.609072161801394*^9}, {3.6090722009403076`*^9, 3.6090722175329666`*^9}, {
+   3.60907227616883*^9, 3.609072303353548*^9}, {3.609072377142926*^9, 
+   3.609072435257412*^9}, {3.609074078987699*^9, 3.6090741036061606`*^9}, {
+   3.609074460232774*^9, 3.6090745263641596`*^9}, {3.6090745625625396`*^9, 
+   3.6090745813186636`*^9}, {3.6090746755432405`*^9, 3.609074709963798*^9}, {
+   3.6090747743947983`*^9, 3.6090747750037985`*^9}, {3.6090748063697987`*^9, 
+   3.609074897047798*^9}, {3.6090749290857983`*^9, 3.6090749335417986`*^9}, 
+   3.6090805336566133`*^9, {3.6090816966666503`*^9, 3.6090816996382446`*^9}}]
+}, Open  ]]
+},
+WindowSize->{635, 615},
+WindowMargins->{{Automatic, 20}, {Automatic, 6}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 275, 5, 74, "Title"],
+Cell[857, 29, 2781, 42, 581, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

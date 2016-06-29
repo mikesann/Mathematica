@@ -1,0 +1,2252 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     94460,       2243]
+NotebookOptionsPosition[     87635,       2018]
+NotebookOutlinePosition[     88177,       2040]
+CellTagsIndexPosition[     88134,       2037]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Homework 2\n",
+ StyleBox["Kelly McKenna, Valerie Richmond\nCPS/Math371 2/12/14",
+  FontSize->24]
+}], "Title",
+ CellChangeTimes->{{3.601157026395503*^9, 3.6011570531183033`*^9}, {
+  3.6011570903711033`*^9, 3.601157096985503*^9}}],
+
+Cell[TextData[StyleBox["1.",
+ FontSize->36,
+ FontColor->RGBColor[0, 0, 1]]], "Text",
+ CellChangeTimes->{{3.601155840563554*^9, 3.60115584265378*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "Module", " ", "returns", " ", "a", " ", "boolean", " ", 
+     "as", " ", "to", " ", "whether", " ", "or", " ", "not", " ", "a", " ", 
+     "given", " ", "value", " ", "squared", " ", "has", " ", "the", " ", 
+     "same", " ", "digits", " ", "as", " ", "the", " ", "value"}], " ", "+", 
+    " ", 
+    RowBox[{"1", " ", "squared", " ", 
+     RowBox[{"does", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"testConsecutiveSquares", "[", "value_", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"consecutive", "=", "False"}], ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"list2", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "=", 
+       RowBox[{"IntegerDigits", "[", 
+        SuperscriptBox["value", "2"], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"list2", "=", 
+       RowBox[{"IntegerDigits", "[", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"value", "+", "1"}], ")"}], "2"], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "If", " ", "the", " ", "sorted", " ", "version", " ", "of", " ", 
+         "list", " ", "is", " ", "the", " ", "same", " ", "as", " ", "that", 
+         " ", "of", " ", "list2"}], ",", " ", 
+        RowBox[{
+        "then", " ", "the", " ", "numbers", " ", "have", " ", "the", " ", 
+         "same", " ", "digits", " ", "so", " ", "the", " ", "boolean", " ", 
+         "is", " ", "set", " ", "to", " ", 
+         RowBox[{"true", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sort", "[", "list", "]"}], "\[Equal]", 
+         RowBox[{"Sort", "[", "list2", "]"}]}], ",", 
+        RowBox[{"consecutive", "=", "True"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "consecutive", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "Module", " ", "returns", " ", "a", " ", "list", " ", "of", 
+     " ", "the", " ", "consecutive", " ", "squares", " ", "between", " ", 
+     "the", " ", "given", " ", 
+     RowBox[{"numbers", ".", " ", "Each"}], " ", "element", " ", "of", " ", 
+     "the", " ", "list", " ", "includes", " ", "the", " ", "number"}], ",", 
+    " ", 
+    RowBox[{"the", " ", "number", " ", "squared"}], ",", " ", 
+    RowBox[{
+     RowBox[{"the", " ", "number"}], " ", "+", " ", 
+     RowBox[{"1", " ", "squared"}]}], ",", " ", 
+    RowBox[{"and", " ", "the", " ", "list", " ", "of", " ", "common", " ", 
+     RowBox[{"digits", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"uConsecutiveSquares", "[", 
+    RowBox[{"low_", ",", "high_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"count", "=", "low"}], ",", 
+       RowBox[{"list1", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"list2", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"list3", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "For", " ", "every", " ", "number", " ", "between", " ", "the", " ", 
+        "given", " ", "boundaries"}], ",", " ", 
+       RowBox[{"testConsecutiveSquares", " ", "is", " ", 
+        RowBox[{"called", ".", " ", "If"}], " ", "it", " ", "returns", " ", 
+        "true"}], ",", " ", 
+       RowBox[{
+       "then", " ", "a", " ", "list", " ", "of", " ", "the", " ", "number"}], 
+       ",", " ", 
+       RowBox[{"number", " ", "squared"}], ",", " ", 
+       RowBox[{"number", "+", 
+        RowBox[{"1", " ", "squared"}]}], ",", " ", 
+       RowBox[{
+       "and", " ", "sorted", " ", "list", " ", "of", " ", "digits", " ", "is",
+         " ", "appended", " ", "to", " ", "the", " ", "returned", " ", 
+        RowBox[{"list", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"count", "=", "low"}], ",", 
+        RowBox[{"count", "\[LessEqual]", "high"}], ",", 
+        RowBox[{"count", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"testConsecutiveSquares", "[", "count", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"list2", "=", 
+             RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"list2", ",", "count"}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"list2", ",", 
+              SuperscriptBox["count", "2"]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"list2", ",", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"count", "+", "1"}], ")"}], "2"]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"list2", ",", 
+              RowBox[{"Sort", "[", 
+               RowBox[{"IntegerDigits", "[", 
+                SuperscriptBox["count", "2"], "]"}], "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"list1", ",", "list2"}], "]"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}],
+       ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "list1", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6011558270706787`*^9, 3.6011558333413563`*^9}, {
+  3.601156534337443*^9, 3.6011565439157815`*^9}, {3.6011567349358697`*^9, 
+  3.601156742330459*^9}, {3.601156796682253*^9, 3.6011568017055817`*^9}, {
+  3.601156845027892*^9, 3.6011569056354465`*^9}, {3.601156936648703*^9, 
+  3.6011569903283033`*^9}, {3.601157239630503*^9, 3.6011572924225035`*^9}, {
+  3.6011573268825035`*^9, 3.601157421012503*^9}, {3.601162285415653*^9, 
+  3.6011623242118587`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Sample Executions", "Subsubsection"]], "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6011576501619864`*^9, 3.6011576718113365`*^9}, 
+   3.6011577123101215`*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"uConsecutiveSquares", "[", 
+   RowBox[{"1", ",", "100"}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.601157559782503*^9, 3.601157583822503*^9}, 
+   3.6011577123101215`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"13", ",", "169", ",", "196", ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "6", ",", "9"}], "}"}]}], "}"}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6011575783825035`*^9, 3.6011575841725035`*^9}, 
+   3.6011577123101215`*^9, 3.6011622997516856`*^9}],
+
+Cell[BoxData[
+ RowBox[{"uConsecutiveSquares", "[", 
+  RowBox[{"12", ",", "1000"}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.601157587732503*^9, 3.6011576065925035`*^9}, 
+   3.6011577123101215`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"13", ",", "169", ",", "196", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "6", ",", "9"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"157", ",", "24649", ",", "24964", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "4", ",", "4", ",", "6", ",", "9"}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"913", ",", "833569", ",", "835396", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "5", ",", "6", ",", "8", ",", "9"}], 
+      "}"}]}], "}"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.6011576073325033`*^9, 3.6011577123101215`*^9, 
+  3.6011623020136275`*^9}],
+
+Cell[BoxData[
+ RowBox[{"uConsecutiveSquares", "[", 
+  RowBox[{"1000", ",", "10000"}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.601157610152503*^9, 3.6011576218325033`*^9}, 
+   3.6011577123101215`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"4513", ",", "20367169", ",", "20376196", ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "1", ",", "2", ",", "3", ",", "6", ",", "6", ",", "7", ",", 
+      "9"}], "}"}]}], "}"}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.6011576224225035`*^9, 3.6011577123101215`*^9, 
+  3.601162305960326*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["2.",
+ FontSize->36,
+ FontColor->RGBColor[0, 0, 1]]], "Subtitle",
+ CellChangeTimes->{{3.6011556464849186`*^9, 3.6011556465473137`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{"given", " ", "an", " ", "integer"}], ",", " ", 
+    RowBox[{
+    "returns", " ", "an", " ", "integer", " ", "with", " ", "the", " ", 
+     "digits", " ", "rearranged", " ", "from", " ", "largest", " ", "to", " ", 
+     RowBox[{"smallest", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"getLargeToSmall", "[", "x_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"number", "=", "0"}], ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "=", 
+       RowBox[{"IntegerDigits", "[", "x", "]"}]}], ";", "   ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "IntegerDigits", " ", "makes", " ", "a", " ", "list", " ", "out", " ", 
+        "of", " ", "an", " ", 
+        RowBox[{"integer", "'"}], "s", " ", 
+        RowBox[{"digits", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "list", "]"}], "\[Equal]", "3"}], ",", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"list", ",", "0"}], "]"}]}], "]"}], ";", "   ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "To", " ", "maintain", " ", "the", " ", "leading", " ", "zeros"}], 
+        ",", " ", 
+        RowBox[{
+        "a", " ", "zero", " ", "is", " ", "added", " ", "if", " ", "the", " ",
+          "length", " ", "of", " ", "the", " ", "list", " ", "is", " ", "not",
+          " ", "4.", " ", "This", " ", "will", " ", "work", " ", "for", " ", 
+         "four", " ", "digit", " ", 
+         RowBox[{"numbers", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"list", "=", 
+       RowBox[{"Sort", "[", 
+        RowBox[{"list", ",", "Greater"}], "]"}]}], ";", "  ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Sort", "[", 
+         RowBox[{"list", ",", " ", "Greater"}], "]"}], " ", "puts", " ", 
+        "the", " ", "list", " ", "in", " ", "order", " ", "from", " ", 
+        "highest", " ", "to", " ", 
+        RowBox[{"smallest", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"number", "=", 
+       RowBox[{"FromDigits", "[", "list", "]"}]}], ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "FromDigits", " ", "creates", " ", "an", " ", "integer", " ", "from", 
+        " ", "the", " ", "new", " ", "ordered", " ", 
+        RowBox[{"list", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "number", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6011216212700467`*^9, 3.6011217507087526`*^9}, {
+   3.601121788077284*^9, 3.6011217926970525`*^9}, 3.6011623557389936`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{"given", " ", "an", " ", "integer"}], ",", " ", 
+    RowBox[{
+    "returns", " ", "an", " ", "integer", " ", "with", " ", "the", " ", 
+     "digits", " ", "rearranged", " ", "from", " ", "smallest", " ", "to", 
+     " ", 
+     RowBox[{"largest", ".", " ", "The"}], " ", "steps", " ", "are", " ", 
+     "similar", " ", "to", " ", "those", " ", 
+     RowBox[{"above", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"getSmallToLarge", "[", "x_", "]"}], ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"number", "=", "0"}], ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "=", 
+       RowBox[{"IntegerDigits", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "list", "]"}], "\[Equal]", "3"}], ",", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"list", ",", "0"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"list", "=", 
+       RowBox[{"Sort", "[", "list", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"number", "=", 
+       RowBox[{"FromDigits", "[", "list", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "number", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.601121764228476*^9, 3.601121773847995*^9}, {
+   3.6011235849623146`*^9, 3.60112359114559*^9}, 3.6011623574705715`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{"given", " ", "an", " ", "integer"}], ",", " ", 
+    RowBox[{
+    "returns", " ", "the", " ", "result", " ", "of", " ", "the", " ", 
+     "number", " ", "ordered", " ", "from", " ", "largest", " ", "to", " ", 
+     "smallest", " ", "minus", " ", "the", " ", "number", " ", "ordered", " ",
+      "from", " ", "smallest", " ", "to", " ", 
+     RowBox[{"largest", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"uNextNumber", "[", "x_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{
+       RowBox[{"getLargeToSmall", "[", "x", "]"}], "-", 
+       RowBox[{"getSmallToLarge", "[", "x", "]"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.601121813276024*^9, 3.601121854063984*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{
+    "given", " ", "a", " ", "number", " ", "to", " ", "manipulate", " ", 
+     "and", " ", "a", " ", "max", " ", "number", " ", "to", " ", "display"}], 
+    ",", " ", 
+    RowBox[{
+     RowBox[{
+     "returns", " ", "a", " ", "list", " ", "of", " ", "repeated", " ", "y"}],
+      "-", 
+     RowBox[{"z", " ", "values", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"y", ":", " ", 
+          RowBox[{
+          "ordered", " ", "from", " ", "high", " ", "to", " ", "low"}]}], ";",
+          " ", 
+         RowBox[{"z", ":", " ", 
+          RowBox[{
+          "ordered", " ", "from", " ", "low", " ", "to", " ", "high"}]}]}], 
+        ")"}], "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"uNextNumberSeq", "[", 
+    RowBox[{"x_", ",", "count_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"nextX", "=", "x"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list", ",", "x"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"counter", "=", "1"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"The", " ", "loop", " ", "adds", " ", "count"}], "-", 
+        RowBox[{
+        "1", " ", "number", " ", "of", " ", "integers", " ", "to", " ", "the",
+          " ", "resulting", " ", 
+         RowBox[{"list", ".", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"The", " ", "passed"}], "-", 
+             RowBox[{
+             "in", " ", "value", " ", "is", " ", "one", " ", "element", " ", 
+              "of", " ", "the", " ", "list"}]}], ",", " ", 
+            RowBox[{
+            "so", " ", "the", " ", "returned", " ", "list", " ", "contains", 
+             " ", "the", " ", "given", " ", "count", " ", "number", " ", "of",
+              " ", 
+             RowBox[{"elements", "."}]}]}], ")"}]}]}]}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"counter", "<", "count"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"nextX", "=", 
+          RowBox[{"uNextNumber", "[", "nextX", "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"list", ",", "nextX"}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"counter", "+=", "1"}]}]}], "\[IndentingNewLine]", "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "list", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.601121857843795*^9, 3.601121890012186*^9}, {
+  3.601123227083927*^9, 3.601123227254182*^9}, {3.6011233458588223`*^9, 
+  3.6011233472308774`*^9}, {3.60112348090609*^9, 3.6011235425688577`*^9}, {
+  3.6011236224331636`*^9, 3.60112365249909*^9}, {3.6011624386519303`*^9, 
+  3.601162444455056*^9}, {3.6011625350141764`*^9, 3.6011625684771767`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sample Executions", "Subsubsection",
+ CellChangeTimes->{{3.60115772669969*^9, 3.6011577429092035`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"8148", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601157756798787*^9, 3.601157760918663*^9}, {
+  3.601157793597683*^9, 3.6011577962976017`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"8148", ",", "7353", ",", "4176"}], "}"}]], "Output",
+ CellChangeTimes->{3.601157796707589*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"9810", ",", " ", "10"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6011578064272976`*^9, 3.6011578253667297`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "9810", ",", "9621", ",", "8352", ",", "6174", ",", "6174", ",", "6174", 
+   ",", "6174", ",", "6174", ",", "6174", ",", "6174"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6011578213568497`*^9, 3.601157825736718*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"2241", ",", " ", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601157837146376*^9, 3.6011578459761114`*^9}, {
+  3.6011625959944797`*^9, 3.601162596836869*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2241", ",", "2997", ",", "7173", ",", "6354", ",", "3087"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.601157846326101*^9, 3.6011625976324587`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+Conjectures\
+\>", "Subtitle",
+ CellChangeTimes->{{3.6010839455308466`*^9, 3.6010839537971106`*^9}, 
+   3.6011577494990053`*^9}],
+
+Cell["\<\
+1 - 4 digit integers with the same number for all 4 digits will result in 0 \
+after the first iteration of uNextNumber
+2 - All other 4 digit integers will reach 6174 within 7 iterations of \
+uNextNumber
+3 - The integers that only take one or two iterations to get to 6174 have \
+digits that add up to even numbers
+4 - After any number of iterations of uNextNumber, the sum of the digits will \
+be divisible by 9
+5 - All integers comprised of some combination of n, n+2, n+4, n+6 follow the \
+same pattern to 6174 (directly after one iteration)
+6 - Integers with the same digits will always take the same routes to 6174
+\
+\>", "Subsubtitle",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQLTXH+3jrlVeOLuZVd0D0PsGn59qA9CUjwwsgOs5a
+/jqIfhA/8R6INtKIcWoH0oIVB51BdNUkB8MOIL34Xb8piLaKLQsG0ROyF0eB
+aK7QR0ydQFos3JQdRCeUZSeCaHEjgVQQfU25ccF0IB3rP3sRiH5ns9lwJpCu
+jLxgCqIn6YfYgOgfS21sQfSC8E/BIPoay+YQEO3YMacRRHdmzgfTWU8W94Fo
+vtCXU8D8yCUrlwHpnvsnV4HoNy/ify4H0gsP7/gFove9uM+8Akgn5bxjBdEt
+sls4QbS8wAUwzROk4gyi34cvdAPRHtND8kD0vd75+SD60+0DUquBtAPDJRkQ
+vfK0jh6IFpg3C0ybHQj0XQOk15nwBYJoACxmzgU=
+  "]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 1", "Subsubsection",
+ CellChangeTimes->{{3.601086773481907*^9, 3.6010867775089064`*^9}, {
+  3.6010893280248804`*^9, 3.60108933244188*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumber", "[", "1111", "]"}]], "Input",
+ CellChangeTimes->{{3.6010867856819067`*^9, 3.601086790403907*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.601086791283907*^9, 3.60108996247688*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumber", "[", "4444", "]"}]], "Input",
+ CellChangeTimes->{{3.6010867927889066`*^9, 3.6010868047289066`*^9}, {
+  3.6010869749689064`*^9, 3.6010869754589067`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.6010868010509067`*^9, 3.601086805363907*^9}, 
+   3.6010869758019066`*^9, 3.6010899647448807`*^9}]
+}, Open  ]],
+
+Cell["\<\
+If you take any number with the same number for all four digits, the number \
+will be the same both forwards and backwards. When you subtract a number from \
+itself, you get 0. And 0 is also the same forwards and backwards, so you will \
+continue to get 0 after each iteration of uNextNumber.\
+\>", "Text",
+ CellChangeTimes->{{3.601086819863907*^9, 3.6010868553999066`*^9}, {
+  3.601086907160907*^9, 3.6010869709669065`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 2", "Subsubsection",
+ CellChangeTimes->{{3.6010867326889067`*^9, 3.6010867379569063`*^9}, {
+  3.601086768311907*^9, 3.6010867684619064`*^9}, {3.6010893254778805`*^9, 
+  3.6010893265768805`*^9}}],
+
+Cell["\<\
+This loop goes through all four digit numbers and finds the integers that are \
+not 6174 by the 7th iteration of uNextNumber.\
+\>", "Text",
+ CellChangeTimes->{{3.6010870624899063`*^9, 3.6010870956149063`*^9}, {
+  3.6010872611059065`*^9, 3.6010872622809067`*^9}, {3.6011239671270328`*^9, 
+  3.6011239689573803`*^9}, {3.6011252244684315`*^9, 3.6011252260684156`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1000"}], ",", 
+   RowBox[{"i", "<", "10000"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"miniList", "=", 
+     RowBox[{"uNextNumberSeq", "[", 
+      RowBox[{"i", ",", "8"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"number", "=", 
+     RowBox[{"miniList", "[", 
+      RowBox[{"[", "8", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"number", "\[Equal]", "6174"}]}], ",", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list", ",", "i"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.601086211433442*^9, 3.601086325202818*^9}, {
+  3.6010863787069063`*^9, 3.601086388099907*^9}, {3.6010866589879065`*^9, 
+  3.6010866651649065`*^9}, {3.60108997060888*^9, 3.6010899723788805`*^9}}],
+
+Cell["\<\
+The only numbers are the integers with the same number for all of the digits.\
+\>", "Text",
+ CellChangeTimes->{{3.6010871024519067`*^9, 3.6010871237739067`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["list"], "Input",
+ CellChangeTimes->{{3.601086643198907*^9, 3.601086643632907*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1111", ",", "2222", ",", "3333", ",", "4444", ",", "5555", ",", "6666", 
+   ",", "7777", ",", "8888", ",", "9999"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6010866444689064`*^9, 3.601086668877907*^9}, 
+   3.6010899786968803`*^9}]
+}, Open  ]],
+
+Cell["\<\
+In comparison, this is the same loop but modified to find the integers that \
+are not 6174 by the 6th iteration of uNextNumber.\
+\>", "Text",
+ CellChangeTimes->{{3.601087143613907*^9, 3.601087185936907*^9}, {
+  3.6010872545379066`*^9, 3.6010872546779065`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1000"}], ",", 
+   RowBox[{"i", "<", "10000"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"miniList", "=", 
+     RowBox[{"uNextNumberSeq", "[", 
+      RowBox[{"i", ",", "7"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"number", "=", 
+     RowBox[{"miniList", "[", 
+      RowBox[{"[", "7", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"number", "\[Equal]", "6174"}]}], ",", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list", ",", "i"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6010867034409065`*^9, 3.6010867052439065`*^9}}],
+
+Cell["\<\
+This shows that there are still 1989 integers yet to reach 6174 after the 6th \
+iteration of uNextNumber, and all but 9 of these will reach 6174 in the next \
+iteration.\
+\>", "Text",
+ CellChangeTimes->{{3.6010872300639067`*^9, 3.6010873178459063`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "list", "]"}]], "Input",
+ CellChangeTimes->{{3.6010871993549066`*^9, 3.6010872027149067`*^9}}],
+
+Cell[BoxData["1989"], "Output",
+ CellChangeTimes->{3.601087203693907*^9, 3.6010899878328805`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 3", "Subsubsection",
+ CellChangeTimes->{{3.601086750889907*^9, 3.6010867549069066`*^9}, {
+  3.6010873348859067`*^9, 3.601087335337907*^9}, {3.6010893228808804`*^9, 
+  3.6010893240088806`*^9}}],
+
+Cell["\<\
+This loop finds all the integers that result in 6174 after two iterations of \
+uNextNumber\
+\>", "Text",
+ CellChangeTimes->{{3.6010873860849066`*^9, 3.601087408976907*^9}, {
+  3.6010894130328803`*^9, 3.6010894205858803`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list2", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1000"}], ",", 
+   RowBox[{"i", "<", "10000"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"miniList", "=", 
+     RowBox[{"uNextNumberSeq", "[", 
+      RowBox[{"i", ",", "8"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"number", "=", 
+     RowBox[{"miniList", "[", 
+      RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"number", "\[Equal]", "6174"}], ",", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list2", ",", "i"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]",
+   "]"}]}], "Input",
+ CellChangeTimes->{{3.6010863418154793`*^9, 3.601086449363907*^9}, {
+  3.6010866736599064`*^9, 3.6010866738199067`*^9}, {3.6010867074659066`*^9, 
+  3.6010867084279065`*^9}, {3.6010874290749063`*^9, 3.6010874294649067`*^9}, {
+  3.6010883478318615`*^9, 3.6010883483399124`*^9}, {3.601088383046383*^9, 
+  3.6010883835264306`*^9}, {3.6010884514212193`*^9, 3.6010884520402813`*^9}, {
+  3.6010885775248284`*^9, 3.6010885776448402`*^9}, {3.601088620872163*^9, 
+  3.601088641662242*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["list2"], "Input",
+ CellChangeTimes->{{3.6010873481629066`*^9, 3.6010873492609067`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1034", ",", "1036", ",", "1043", ",", "1058", ",", "1063", ",", "1078", 
+   ",", "1085", ",", "1087", ",", "1135", ",", "1137", ",", "1153", ",", 
+   "1159", ",", "1173", ",", "1179", ",", "1195", ",", "1197", ",", "1245", 
+   ",", "1247", ",", "1254", ",", "1269", ",", "1274", ",", "1289", ",", 
+   "1296", ",", "1298", ",", "1304", ",", "1306", ",", "1315", ",", "1317", 
+   ",", "1340", ",", "1351", ",", "1355", ",", "1357", ",", "1360", ",", 
+   "1371", ",", "1375", ",", "1379", ",", "1397", ",", "1399", ",", "1403", 
+   ",", "1425", ",", "1427", ",", "1430", ",", "1452", ",", "1467", ",", 
+   "1472", ",", "1476", ",", "1489", ",", "1498", ",", "1508", ",", "1513", 
+   ",", "1519", ",", "1524", ",", "1531", ",", "1535", ",", "1537", ",", 
+   "1542", ",", "1553", ",", "1573", ",", "1577", ",", "1580", ",", "1591", 
+   ",", "1599", ",", "1603", ",", "1629", ",", "1630", ",", "1647", ",", 
+   "1674", ",", "1692", ",", "1708", ",", "1713", ",", "1719", ",", "1724", 
+   ",", "1731", ",", "1735", ",", "1739", ",", "1742", ",", "1746", ",", 
+   "1753", ",", "1757", ",", "1764", ",", "1775", ",", "1780", ",", "1791", 
+   ",", "1793", ",", "1805", ",", "1807", ",", "1829", ",", "1849", ",", 
+   "1850", ",", "1870", ",", "1892", ",", "1894", ",", "1915", ",", "1917", 
+   ",", "1926", ",", "1928", ",", "1937", ",", "1939", ",", "1948", ",", 
+   "1951", ",", "1959", ",", "1962", ",", "1971", ",", "1973", ",", "1982", 
+   ",", "1984", ",", "1993", ",", "1995", ",", "2004", ",", "2006", ",", 
+   "2040", ",", "2044", ",", "2046", ",", "2060", ",", "2064", ",", "2068", 
+   ",", "2086", ",", "2088", ",", "2145", ",", "2147", ",", "2154", ",", 
+   "2169", ",", "2174", ",", "2189", ",", "2196", ",", "2198", ",", "2246", 
+   ",", "2248", ",", "2264", ",", "2284", ",", "2356", ",", "2358", ",", 
+   "2365", ",", "2385", ",", "2400", ",", "2404", ",", "2406", ",", "2415", 
+   ",", "2417", ",", "2426", ",", "2428", ",", "2440", ",", "2451", ",", 
+   "2460", ",", "2462", ",", "2466", ",", "2468", ",", "2471", ",", "2482", 
+   ",", "2486", ",", "2514", ",", "2536", ",", "2538", ",", "2541", ",", 
+   "2563", ",", "2578", ",", "2583", ",", "2587", ",", "2600", ",", "2604", 
+   ",", "2608", ",", "2619", ",", "2624", ",", "2635", ",", "2640", ",", 
+   "2642", ",", "2646", ",", "2648", ",", "2653", ",", "2664", ",", "2680", 
+   ",", "2684", ",", "2688", ",", "2691", ",", "2714", ",", "2741", ",", 
+   "2758", ",", "2785", ",", "2806", ",", "2808", ",", "2819", ",", "2824", 
+   ",", "2835", ",", "2842", ",", "2846", ",", "2853", ",", "2857", ",", 
+   "2860", ",", "2864", ",", "2868", ",", "2875", ",", "2880", ",", "2886", 
+   ",", "2891", ",", "2916", ",", "2918", ",", "2961", ",", "2981", ",", 
+   "3014", ",", "3016", ",", "3041", ",", "3056", ",", "3061", ",", "3065", 
+   ",", "3078", ",", "3087", ",", "3104", ",", "3106", ",", "3115", ",", 
+   "3117", ",", "3140", ",", "3151", ",", "3155", ",", "3157", ",", "3160", 
+   ",", "3171", ",", "3175", ",", "3179", ",", "3197", ",", "3199", ",", 
+   "3256", ",", "3258", ",", "3265", ",", "3285", ",", "3357", ",", "3359", 
+   ",", "3375", ",", "3395", ",", "3401", ",", "3410", ",", "3467", ",", 
+   "3469", ",", "3476", ",", "3496", ",", "3506", ",", "3511", ",", "3515", 
+   ",", "3517", ",", "3526", ",", "3528", ",", "3537", ",", "3539", ",", 
+   "3551", ",", "3560", ",", "3562", ",", "3571", ",", "3573", ",", "3577", 
+   ",", "3579", ",", "3582", ",", "3593", ",", "3597", ",", "3601", ",", 
+   "3605", ",", "3610", ",", "3625", ",", "3647", ",", "3649", ",", "3650", 
+   ",", "3652", ",", "3674", ",", "3689", ",", "3694", ",", "3698", ",", 
+   "3708", ",", "3711", ",", "3715", ",", "3719", ",", "3735", ",", "3746", 
+   ",", "3751", ",", "3753", ",", "3757", ",", "3759", ",", "3764", ",", 
+   "3775", ",", "3780", ",", "3791", ",", "3795", ",", "3799", ",", "3807", 
+   ",", "3825", ",", "3852", ",", "3869", ",", "3870", ",", "3896", ",", 
+   "3917", ",", "3919", ",", "3935", ",", "3946", ",", "3953", ",", "3957", 
+   ",", "3964", ",", "3968", ",", "3971", ",", "3975", ",", "3979", ",", 
+   "3986", ",", "3991", ",", "3997", ",", "4002", ",", "4008", ",", "4013", 
+   ",", "4020", ",", "4024", ",", "4026", ",", "4031", ",", "4042", ",", 
+   "4062", ",", "4066", ",", "4080", ",", "4088", ",", "4103", ",", "4125", 
+   ",", "4127", ",", "4130", ",", "4152", ",", "4167", ",", "4172", ",", 
+   "4176", ",", "4189", ",", "4198", ",", "4200", ",", "4204", ",", "4206", 
+   ",", "4215", ",", "4217", ",", "4226", ",", "4228", ",", "4240", ",", 
+   "4251", ",", "4260", ",", "4262", ",", "4266", ",", "4268", ",", "4271", 
+   ",", "4282", ",", "4286", ",", "4301", ",", "4310", ",", "4367", ",", 
+   "4369", ",", "4376", ",", "4396", ",", "4402", ",", "4420", ",", "4468", 
+   ",", "4486", ",", "4512", ",", "4521", ",", "4578", ",", "4587", ",", 
+   "4602", ",", "4606", ",", "4617", ",", "4620", ",", "4622", ",", "4626", 
+   ",", "4628", ",", "4637", ",", "4639", ",", "4648", ",", "4660", ",", 
+   "4662", ",", "4671", ",", "4673", ",", "4682", ",", "4684", ",", "4688", 
+   ",", "4693", ",", "4712", ",", "4716", ",", "4721", ",", "4736", ",", 
+   "4758", ",", "4761", ",", "4763", ",", "4785", ",", "4800", ",", "4808", 
+   ",", "4819", ",", "4822", ",", "4826", ",", "4846", ",", "4857", ",", 
+   "4862", ",", "4864", ",", "4868", ",", "4875", ",", "4880", ",", "4886", 
+   ",", "4891", ",", "4918", ",", "4936", ",", "4963", ",", "4981", ",", 
+   "5018", ",", "5036", ",", "5063", ",", "5081", ",", "5108", ",", "5113", 
+   ",", "5119", ",", "5124", ",", "5131", ",", "5135", ",", "5137", ",", 
+   "5142", ",", "5153", ",", "5173", ",", "5177", ",", "5180", ",", "5191", 
+   ",", "5199", ",", "5214", ",", "5236", ",", "5238", ",", "5241", ",", 
+   "5263", ",", "5278", ",", "5283", ",", "5287", ",", "5306", ",", "5311", 
+   ",", "5315", ",", "5317", ",", "5326", ",", "5328", ",", "5337", ",", 
+   "5339", ",", "5351", ",", "5360", ",", "5362", ",", "5371", ",", "5373", 
+   ",", "5377", ",", "5379", ",", "5382", ",", "5393", ",", "5397", ",", 
+   "5412", ",", "5421", ",", "5478", ",", "5487", ",", "5513", ",", "5531", 
+   ",", "5579", ",", "5597", ",", "5603", ",", "5623", ",", "5630", ",", 
+   "5632", ",", "5689", ",", "5698", ",", "5713", ",", "5717", ",", "5728", 
+   ",", "5731", ",", "5733", ",", "5737", ",", "5739", ",", "5748", ",", 
+   "5759", ",", "5771", ",", "5773", ",", "5782", ",", "5784", ",", "5793", 
+   ",", "5795", ",", "5799", ",", "5801", ",", "5810", ",", "5823", ",", 
+   "5827", ",", "5832", ",", "5847", ",", "5869", ",", "5872", ",", "5874", 
+   ",", "5896", ",", "5911", ",", "5919", ",", "5933", ",", "5937", ",", 
+   "5957", ",", "5968", ",", "5973", ",", "5975", ",", "5979", ",", "5986", 
+   ",", "5991", ",", "5997", ",", "6002", ",", "6008", ",", "6013", ",", 
+   "6020", ",", "6024", ",", "6028", ",", "6031", ",", "6035", ",", "6042", 
+   ",", "6046", ",", "6053", ",", "6064", ",", "6080", ",", "6082", ",", 
+   "6103", ",", "6129", ",", "6130", ",", "6147", ",", "6174", ",", "6192", 
+   ",", "6200", ",", "6204", ",", "6208", ",", "6219", ",", "6224", ",", 
+   "6235", ",", "6240", ",", "6242", ",", "6246", ",", "6248", ",", "6253", 
+   ",", "6264", ",", "6280", ",", "6284", ",", "6288", ",", "6291", ",", 
+   "6301", ",", "6305", ",", "6310", ",", "6325", ",", "6347", ",", "6349", 
+   ",", "6350", ",", "6352", ",", "6374", ",", "6389", ",", "6394", ",", 
+   "6398", ",", "6402", ",", "6406", ",", "6417", ",", "6420", ",", "6422", 
+   ",", "6426", ",", "6428", ",", "6437", ",", "6439", ",", "6448", ",", 
+   "6460", ",", "6462", ",", "6471", ",", "6473", ",", "6482", ",", "6484", 
+   ",", "6488", ",", "6493", ",", "6503", ",", "6523", ",", "6530", ",", 
+   "6532", ",", "6589", ",", "6598", ",", "6604", ",", "6624", ",", "6640", 
+   ",", "6642", ",", "6714", ",", "6734", ",", "6741", ",", "6743", ",", 
+   "6800", ",", "6802", ",", "6820", ",", "6824", ",", "6828", ",", "6839", 
+   ",", "6842", ",", "6844", ",", "6848", ",", "6859", ",", "6882", ",", 
+   "6884", ",", "6893", ",", "6895", ",", "6912", ",", "6921", ",", "6934", 
+   ",", "6938", ",", "6943", ",", "6958", ",", "6983", ",", "6985", ",", 
+   "7018", ",", "7038", ",", "7081", ",", "7083", ",", "7108", ",", "7113", 
+   ",", "7119", ",", "7124", ",", "7131", ",", "7135", ",", "7139", ",", 
+   "7142", ",", "7146", ",", "7153", ",", "7157", ",", "7164", ",", "7175", 
+   ",", "7180", ",", "7191", ",", "7193", ",", "7214", ",", "7241", ",", 
+   "7258", ",", "7285", ",", "7308", ",", "7311", ",", "7315", ",", "7319", 
+   ",", "7335", ",", "7346", ",", "7351", ",", "7353", ",", "7357", ",", 
+   "7359", ",", "7364", ",", "7375", ",", "7380", ",", "7391", ",", "7395", 
+   ",", "7399", ",", "7412", ",", "7416", ",", "7421", ",", "7436", ",", 
+   "7458", ",", "7461", ",", "7463", ",", "7485", ",", "7513", ",", "7517", 
+   ",", "7528", ",", "7531", ",", "7533", ",", "7537", ",", "7539", ",", 
+   "7548", ",", "7559", ",", "7571", ",", "7573", ",", "7582", ",", "7584", 
+   ",", "7593", ",", "7595", ",", "7599", ",", "7614", ",", "7634", ",", 
+   "7641", ",", "7643", ",", "7715", ",", "7735", ",", "7751", ",", "7753", 
+   ",", "7801", ",", "7803", ",", "7810", ",", "7825", ",", "7830", ",", 
+   "7845", ",", "7852", ",", "7854", ",", "7911", ",", "7913", ",", "7931", 
+   ",", "7935", ",", "7939", ",", "7953", ",", "7955", ",", "7959", ",", 
+   "7993", ",", "7995", ",", "8004", ",", "8006", ",", "8015", ",", "8017", 
+   ",", "8026", ",", "8028", ",", "8037", ",", "8040", ",", "8048", ",", 
+   "8051", ",", "8060", ",", "8062", ",", "8071", ",", "8073", ",", "8082", 
+   ",", "8084", ",", "8105", ",", "8107", ",", "8129", ",", "8149", ",", 
+   "8150", ",", "8170", ",", "8192", ",", "8194", ",", "8206", ",", "8208", 
+   ",", "8219", ",", "8224", ",", "8235", ",", "8242", ",", "8246", ",", 
+   "8253", ",", "8257", ",", "8260", ",", "8264", ",", "8268", ",", "8275", 
+   ",", "8280", ",", "8286", ",", "8291", ",", "8307", ",", "8325", ",", 
+   "8352", ",", "8369", ",", "8370", ",", "8396", ",", "8400", ",", "8408", 
+   ",", "8419", ",", "8422", ",", "8426", ",", "8446", ",", "8457", ",", 
+   "8462", ",", "8464", ",", "8468", ",", "8475", ",", "8480", ",", "8486", 
+   ",", "8491", ",", "8501", ",", "8510", ",", "8523", ",", "8527", ",", 
+   "8532", ",", "8547", ",", "8569", ",", "8572", ",", "8574", ",", "8596", 
+   ",", "8600", ",", "8602", ",", "8620", ",", "8624", ",", "8628", ",", 
+   "8639", ",", "8642", ",", "8644", ",", "8648", ",", "8659", ",", "8682", 
+   ",", "8684", ",", "8693", ",", "8695", ",", "8701", ",", "8703", ",", 
+   "8710", ",", "8725", ",", "8730", ",", "8745", ",", "8752", ",", "8754", 
+   ",", "8802", ",", "8804", ",", "8820", ",", "8826", ",", "8840", ",", 
+   "8846", ",", "8862", ",", "8864", ",", "8912", ",", "8914", ",", "8921", 
+   ",", "8936", ",", "8941", ",", "8956", ",", "8963", ",", "8965", ",", 
+   "9115", ",", "9117", ",", "9126", ",", "9128", ",", "9137", ",", "9139", 
+   ",", "9148", ",", "9151", ",", "9159", ",", "9162", ",", "9171", ",", 
+   "9173", ",", "9182", ",", "9184", ",", "9193", ",", "9195", ",", "9216", 
+   ",", "9218", ",", "9261", ",", "9281", ",", "9317", ",", "9319", ",", 
+   "9335", ",", "9346", ",", "9353", ",", "9357", ",", "9364", ",", "9368", 
+   ",", "9371", ",", "9375", ",", "9379", ",", "9386", ",", "9391", ",", 
+   "9397", ",", "9418", ",", "9436", ",", "9463", ",", "9481", ",", "9511", 
+   ",", "9519", ",", "9533", ",", "9537", ",", "9557", ",", "9568", ",", 
+   "9573", ",", "9575", ",", "9579", ",", "9586", ",", "9591", ",", "9597", 
+   ",", "9612", ",", "9621", ",", "9634", ",", "9638", ",", "9643", ",", 
+   "9658", ",", "9683", ",", "9685", ",", "9711", ",", "9713", ",", "9731", 
+   ",", "9735", ",", "9739", ",", "9753", ",", "9755", ",", "9759", ",", 
+   "9793", ",", "9795", ",", "9812", ",", "9814", ",", "9821", ",", "9836", 
+   ",", "9841", ",", "9856", ",", "9863", ",", "9865", ",", "9913", ",", 
+   "9915", ",", "9931", ",", "9937", ",", "9951", ",", "9957", ",", "9973", 
+   ",", "9975"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6010873505679064`*^9, 3.6010874323939066`*^9, 3.6010883542525034`*^9, 
+   3.6010883969747753`*^9, 3.601088458383916*^9, 3.6010885829883747`*^9, {
+   3.6010886275208273`*^9, 3.601088646152691*^9}, 3.6010900018028803`*^9}]
+}, Closed]],
+
+Cell["\<\
+This loop goes through the previous list and sums the digits of the integers, \
+showing the values in the following list.\
+\>", "Text",
+ CellChangeTimes->{{3.60108945043688*^9, 3.6010894800348806`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list3", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", 
+    RowBox[{"Length", "[", "list2", "]"}]}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"listTemp", "=", 
+     RowBox[{"IntegerDigits", "[", 
+      RowBox[{"list2", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"list3", "=", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"list3", ",", 
+       RowBox[{"Total", "[", "listTemp", "]"}]}], "]"}]}]}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.6010864693039064`*^9, 3.6010865016129065`*^9}, {
+  3.6010885425623326`*^9, 3.6010885441924953`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["list3"], "Input",
+ CellChangeTimes->{{3.6010873601219063`*^9, 3.6010873612549067`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "8", ",", "10", ",", "8", ",", "14", ",", "10", ",", "16", ",", "14", ",", 
+   "16", ",", "10", ",", "12", ",", "10", ",", "16", ",", "12", ",", "18", 
+   ",", "16", ",", "18", ",", "12", ",", "14", ",", "12", ",", "18", ",", 
+   "14", ",", "20", ",", "18", ",", "20", ",", "8", ",", "10", ",", "10", ",",
+    "12", ",", "8", ",", "10", ",", "14", ",", "16", ",", "10", ",", "12", 
+   ",", "16", ",", "20", ",", "20", ",", "22", ",", "8", ",", "12", ",", "14",
+    ",", "8", ",", "12", ",", "18", ",", "14", ",", "18", ",", "22", ",", 
+   "22", ",", "14", ",", "10", ",", "16", ",", "12", ",", "10", ",", "14", 
+   ",", "16", ",", "12", ",", "14", ",", "16", ",", "20", ",", "14", ",", 
+   "16", ",", "24", ",", "10", ",", "18", ",", "10", ",", "18", ",", "18", 
+   ",", "18", ",", "16", ",", "12", ",", "18", ",", "14", ",", "12", ",", 
+   "16", ",", "20", ",", "14", ",", "18", ",", "16", ",", "20", ",", "18", 
+   ",", "20", ",", "16", ",", "18", ",", "20", ",", "14", ",", "16", ",", 
+   "20", ",", "22", ",", "14", ",", "16", ",", "20", ",", "22", ",", "16", 
+   ",", "18", ",", "18", ",", "20", ",", "20", ",", "22", ",", "22", ",", 
+   "16", ",", "24", ",", "18", ",", "18", ",", "20", ",", "20", ",", "22", 
+   ",", "22", ",", "24", ",", "6", ",", "8", ",", "6", ",", "10", ",", "12", 
+   ",", "8", ",", "12", ",", "16", ",", "16", ",", "18", ",", "12", ",", "14",
+    ",", "12", ",", "18", ",", "14", ",", "20", ",", "18", ",", "20", ",", 
+   "14", ",", "16", ",", "14", ",", "16", ",", "16", ",", "18", ",", "16", 
+   ",", "18", ",", "6", ",", "10", ",", "12", ",", "12", ",", "14", ",", "14",
+    ",", "16", ",", "10", ",", "12", ",", "12", ",", "14", ",", "18", ",", 
+   "20", ",", "14", ",", "16", ",", "20", ",", "12", ",", "16", ",", "18", 
+   ",", "12", ",", "16", ",", "22", ",", "18", ",", "22", ",", "8", ",", "12",
+    ",", "16", ",", "18", ",", "14", ",", "16", ",", "12", ",", "14", ",", 
+   "18", ",", "20", ",", "16", ",", "18", ",", "16", ",", "20", ",", "24", 
+   ",", "18", ",", "14", ",", "14", ",", "22", ",", "22", ",", "16", ",", 
+   "18", ",", "20", ",", "16", ",", "18", ",", "16", ",", "20", ",", "18", 
+   ",", "22", ",", "16", ",", "20", ",", "24", ",", "22", ",", "18", ",", 
+   "24", ",", "20", ",", "18", ",", "20", ",", "18", ",", "20", ",", "8", ",",
+    "10", ",", "8", ",", "14", ",", "10", ",", "14", ",", "18", ",", "18", 
+   ",", "8", ",", "10", ",", "10", ",", "12", ",", "8", ",", "10", ",", "14", 
+   ",", "16", ",", "10", ",", "12", ",", "16", ",", "20", ",", "20", ",", 
+   "22", ",", "16", ",", "18", ",", "16", ",", "18", ",", "18", ",", "20", 
+   ",", "18", ",", "20", ",", "8", ",", "8", ",", "20", ",", "22", ",", "20", 
+   ",", "22", ",", "14", ",", "10", ",", "14", ",", "16", ",", "16", ",", 
+   "18", ",", "18", ",", "20", ",", "14", ",", "14", ",", "16", ",", "16", 
+   ",", "18", ",", "22", ",", "24", ",", "18", ",", "20", ",", "24", ",", 
+   "10", ",", "14", ",", "10", ",", "16", ",", "20", ",", "22", ",", "14", 
+   ",", "16", ",", "20", ",", "26", ",", "22", ",", "26", ",", "18", ",", 
+   "12", ",", "16", ",", "20", ",", "18", ",", "20", ",", "16", ",", "18", 
+   ",", "22", ",", "24", ",", "20", ",", "22", ",", "18", ",", "20", ",", 
+   "24", ",", "28", ",", "18", ",", "18", ",", "18", ",", "26", ",", "18", 
+   ",", "26", ",", "20", ",", "22", ",", "20", ",", "22", ",", "20", ",", 
+   "24", ",", "22", ",", "26", ",", "20", ",", "24", ",", "28", ",", "26", 
+   ",", "22", ",", "28", ",", "6", ",", "12", ",", "8", ",", "6", ",", "10", 
+   ",", "12", ",", "8", ",", "10", ",", "12", ",", "16", ",", "12", ",", "20",
+    ",", "8", ",", "12", ",", "14", ",", "8", ",", "12", ",", "18", ",", "14",
+    ",", "18", ",", "22", ",", "22", ",", "6", ",", "10", ",", "12", ",", 
+   "12", ",", "14", ",", "14", ",", "16", ",", "10", ",", "12", ",", "12", 
+   ",", "14", ",", "18", ",", "20", ",", "14", ",", "16", ",", "20", ",", "8",
+    ",", "8", ",", "20", ",", "22", ",", "20", ",", "22", ",", "10", ",", 
+   "10", ",", "22", ",", "22", ",", "12", ",", "12", ",", "24", ",", "24", 
+   ",", "12", ",", "16", ",", "18", ",", "12", ",", "14", ",", "18", ",", 
+   "20", ",", "20", ",", "22", ",", "22", ",", "16", ",", "18", ",", "18", 
+   ",", "20", ",", "20", ",", "22", ",", "26", ",", "22", ",", "14", ",", 
+   "18", ",", "14", ",", "20", ",", "24", ",", "18", ",", "20", ",", "24", 
+   ",", "12", ",", "20", ",", "22", ",", "16", ",", "20", ",", "22", ",", 
+   "24", ",", "20", ",", "22", ",", "26", ",", "24", ",", "20", ",", "26", 
+   ",", "22", ",", "22", ",", "22", ",", "22", ",", "22", ",", "14", ",", 
+   "14", ",", "14", ",", "14", ",", "14", ",", "10", ",", "16", ",", "12", 
+   ",", "10", ",", "14", ",", "16", ",", "12", ",", "14", ",", "16", ",", 
+   "20", ",", "14", ",", "16", ",", "24", ",", "12", ",", "16", ",", "18", 
+   ",", "12", ",", "16", ",", "22", ",", "18", ",", "22", ",", "14", ",", 
+   "10", ",", "14", ",", "16", ",", "16", ",", "18", ",", "18", ",", "20", 
+   ",", "14", ",", "14", ",", "16", ",", "16", ",", "18", ",", "22", ",", 
+   "24", ",", "18", ",", "20", ",", "24", ",", "12", ",", "12", ",", "24", 
+   ",", "24", ",", "14", ",", "14", ",", "26", ",", "26", ",", "14", ",", 
+   "16", ",", "14", ",", "16", ",", "28", ",", "28", ",", "16", ",", "20", 
+   ",", "22", ",", "16", ",", "18", ",", "22", ",", "24", ",", "24", ",", 
+   "26", ",", "20", ",", "22", ",", "22", ",", "24", ",", "24", ",", "26", 
+   ",", "30", ",", "14", ",", "14", ",", "18", ",", "22", ",", "18", ",", 
+   "24", ",", "28", ",", "22", ",", "24", ",", "28", ",", "16", ",", "24", 
+   ",", "20", ",", "24", ",", "26", ",", "28", ",", "24", ",", "26", ",", 
+   "30", ",", "28", ",", "24", ",", "30", ",", "8", ",", "14", ",", "10", ",",
+    "8", ",", "12", ",", "16", ",", "10", ",", "14", ",", "12", ",", "16", 
+   ",", "14", ",", "16", ",", "14", ",", "16", ",", "10", ",", "18", ",", 
+   "10", ",", "18", ",", "18", ",", "18", ",", "8", ",", "12", ",", "16", ",",
+    "18", ",", "14", ",", "16", ",", "12", ",", "14", ",", "18", ",", "20", 
+   ",", "16", ",", "18", ",", "16", ",", "20", ",", "24", ",", "18", ",", 
+   "10", ",", "14", ",", "10", ",", "16", ",", "20", ",", "22", ",", "14", 
+   ",", "16", ",", "20", ",", "26", ",", "22", ",", "26", ",", "12", ",", 
+   "16", ",", "18", ",", "12", ",", "14", ",", "18", ",", "20", ",", "20", 
+   ",", "22", ",", "22", ",", "16", ",", "18", ",", "18", ",", "20", ",", 
+   "20", ",", "22", ",", "26", ",", "22", ",", "14", ",", "16", ",", "14", 
+   ",", "16", ",", "28", ",", "28", ",", "16", ",", "18", ",", "16", ",", 
+   "18", ",", "18", ",", "20", ",", "18", ",", "20", ",", "14", ",", "16", 
+   ",", "16", ",", "20", ",", "24", ",", "26", ",", "20", ",", "22", ",", 
+   "26", ",", "28", ",", "24", ",", "26", ",", "26", ",", "28", ",", "18", 
+   ",", "18", ",", "22", ",", "26", ",", "22", ",", "28", ",", "26", ",", 
+   "28", ",", "16", ",", "18", ",", "16", ",", "18", ",", "16", ",", "12", 
+   ",", "18", ",", "14", ",", "12", ",", "16", ",", "20", ",", "14", ",", 
+   "18", ",", "16", ",", "20", ",", "18", ",", "20", ",", "16", ",", "18", 
+   ",", "20", ",", "14", ",", "14", ",", "22", ",", "22", ",", "18", ",", 
+   "12", ",", "16", ",", "20", ",", "18", ",", "20", ",", "16", ",", "18", 
+   ",", "22", ",", "24", ",", "20", ",", "22", ",", "18", ",", "20", ",", 
+   "24", ",", "28", ",", "14", ",", "18", ",", "14", ",", "20", ",", "24", 
+   ",", "18", ",", "20", ",", "24", ",", "16", ",", "20", ",", "22", ",", 
+   "16", ",", "18", ",", "22", ",", "24", ",", "24", ",", "26", ",", "20", 
+   ",", "22", ",", "22", ",", "24", ",", "24", ",", "26", ",", "30", ",", 
+   "18", ",", "20", ",", "18", ",", "20", ",", "20", ",", "22", ",", "20", 
+   ",", "22", ",", "16", ",", "18", ",", "16", ",", "22", ",", "18", ",", 
+   "24", ",", "22", ",", "24", ",", "18", ",", "20", ",", "20", ",", "24", 
+   ",", "28", ",", "24", ",", "26", ",", "30", ",", "28", ",", "30", ",", 
+   "12", ",", "14", ",", "14", ",", "16", ",", "16", ",", "18", ",", "18", 
+   ",", "12", ",", "20", ",", "14", ",", "14", ",", "16", ",", "16", ",", 
+   "18", ",", "18", ",", "20", ",", "14", ",", "16", ",", "20", ",", "22", 
+   ",", "14", ",", "16", ",", "20", ",", "22", ",", "16", ",", "18", ",", 
+   "20", ",", "16", ",", "18", ",", "16", ",", "20", ",", "18", ",", "22", 
+   ",", "16", ",", "20", ",", "24", ",", "22", ",", "18", ",", "24", ",", 
+   "20", ",", "18", ",", "18", ",", "18", ",", "26", ",", "18", ",", "26", 
+   ",", "12", ",", "20", ",", "22", ",", "16", ",", "20", ",", "22", ",", 
+   "24", ",", "20", ",", "22", ",", "26", ",", "24", ",", "20", ",", "26", 
+   ",", "22", ",", "14", ",", "14", ",", "18", ",", "22", ",", "18", ",", 
+   "24", ",", "28", ",", "22", ",", "24", ",", "28", ",", "14", ",", "16", 
+   ",", "16", ",", "20", ",", "24", ",", "26", ",", "20", ",", "22", ",", 
+   "26", ",", "28", ",", "24", ",", "26", ",", "26", ",", "28", ",", "16", 
+   ",", "18", ",", "16", ",", "22", ",", "18", ",", "24", ",", "22", ",", 
+   "24", ",", "18", ",", "20", ",", "18", ",", "24", ",", "20", ",", "26", 
+   ",", "24", ",", "26", ",", "20", ",", "22", ",", "20", ",", "26", ",", 
+   "22", ",", "28", ",", "26", ",", "28", ",", "16", ",", "18", ",", "18", 
+   ",", "20", ",", "20", ",", "22", ",", "22", ",", "16", ",", "24", ",", 
+   "18", ",", "18", ",", "20", ",", "20", ",", "22", ",", "22", ",", "24", 
+   ",", "18", ",", "20", ",", "18", ",", "20", ",", "20", ",", "22", ",", 
+   "20", ",", "22", ",", "20", ",", "24", ",", "22", ",", "26", ",", "20", 
+   ",", "24", ",", "28", ",", "26", ",", "22", ",", "28", ",", "22", ",", 
+   "22", ",", "22", ",", "22", ",", "16", ",", "24", ",", "20", ",", "24", 
+   ",", "26", ",", "28", ",", "24", ",", "26", ",", "30", ",", "28", ",", 
+   "24", ",", "30", ",", "18", ",", "18", ",", "22", ",", "26", ",", "22", 
+   ",", "28", ",", "26", ",", "28", ",", "18", ",", "20", ",", "20", ",", 
+   "24", ",", "28", ",", "24", ",", "26", ",", "30", ",", "28", ",", "30", 
+   ",", "20", ",", "22", ",", "20", ",", "26", ",", "22", ",", "28", ",", 
+   "26", ",", "28", ",", "22", ",", "24", ",", "22", ",", "28", ",", "24", 
+   ",", "30", ",", "28", ",", "30"}], "}"}]], "Output",
+ CellChangeTimes->{{3.601088549661042*^9, 3.6010885620032763`*^9}, 
+   3.6010885934324193`*^9, {3.6010886341474905`*^9, 3.601088653987474*^9}, 
+   3.6010900105828805`*^9}]
+}, Open  ]],
+
+Cell["\<\
+This loop goes through the previous list and finds if there are any odd \
+numbers, and if there are any then it adds them to the list\
+\>", "Text",
+ CellChangeTimes->{{3.6010894874918804`*^9, 3.6010895270438805`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list4", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", 
+    RowBox[{"Length", "[", "list3", "]"}]}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"OddQ", "[", 
+      RowBox[{"list3", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"list4", ",", "i"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.60108878476155*^9, 3.60108888258788*^9}}],
+
+Cell["\<\
+Because there are no odd numbers in the list, this shows that all the \
+integers that reach 6174 in the first two iterations of uNextNumber have \
+digits that add to an even number.\
+\>", "Text",
+ CellChangeTimes->{{3.6010895133398805`*^9, 3.6010895902728806`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["list4"], "Input",
+ CellChangeTimes->{{3.6010888847708807`*^9, 3.6010888862948804`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.6010888872108803`*^9, 3.6010900179578805`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 4", "Subsubsection",
+ CellChangeTimes->{{3.6010893086148806`*^9, 3.6010893208538804`*^9}}],
+
+Cell["\<\
+This code goes through and finds if there are any integers that after the \
+first seven iterations have a sum of digits that is not divisible by 9.\
+\>", "Text",
+ CellChangeTimes->{{3.6010902182658806`*^9, 3.6010902349688807`*^9}, {
+  3.60109028146988*^9, 3.60109032075288*^9}, {3.60109056535888*^9, 
+  3.6010905688198805`*^9}, {3.601154352895339*^9, 3.601154360039452*^9}, {
+  3.601162733569116*^9, 3.6011627341151085`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list5", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"j", "=", "2"}], ",", " ", 
+   RowBox[{"j", "<", "8"}], ",", " ", 
+   RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", "=", "1000"}], ",", 
+     RowBox[{"i", "<", " ", "10000"}], ",", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"miniList", "=", 
+       RowBox[{"uNextNumberSeq", "[", 
+        RowBox[{"i", ",", "8"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"number", "=", 
+       RowBox[{"Total", "[", 
+        RowBox[{"IntegerDigits", "[", 
+         RowBox[{"miniList", "[", 
+          RowBox[{"[", "j", "]"}], "]"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"Divisible", "[", 
+         RowBox[{"number", ",", "9"}], "]"}], ",", ",", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"list5", ",", "i"}], "]"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.6010865544309063`*^9, 3.6010866195969067`*^9}, {
+   3.6010866829479065`*^9, 3.6010866831179066`*^9}, {3.6010887813002043`*^9, 
+   3.601088781399214*^9}, 3.6010896582488804`*^9, {3.6010896919428806`*^9, 
+   3.60108978123188*^9}, {3.6010904114858804`*^9, 3.6010904188688803`*^9}, {
+   3.6010905258198805`*^9, 3.6010905409478807`*^9}, {3.6010907416958804`*^9, 
+   3.6010907562288804`*^9}, {3.601154245140901*^9, 3.60115429340266*^9}}],
+
+Cell["\<\
+Because there are no integers that result in a number not divisible by 9, \
+this shows that after each iteration of uNextNumber, the outcome for any \
+number will always be divisible by 9.\
+\>", "Text",
+ CellChangeTimes->{{3.6010908610038805`*^9, 3.601090912404146*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["list5"], "Input",
+ CellChangeTimes->{{3.60108965067288*^9, 3.60108965188288*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.6010896527138805`*^9, 3.6010896621098804`*^9}, 
+   3.6010896973628807`*^9, {3.6010897717708807`*^9, 3.6010897947208805`*^9}, 
+   3.60109002873188*^9, 3.60109042400288*^9, 3.6010905478288803`*^9, {
+   3.6010907479928803`*^9, 3.6010907609988804`*^9}, 3.6011543415552297`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 5", "Subsubsection",
+ CellChangeTimes->{{3.60115509791905*^9, 3.601155100087408*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"3579", ",", "15"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601155114704327*^9, 3.6011551300388327`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "3579", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", 
+   ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", 
+   "6174", ",", "6174", ",", "6174", ",", "6174"}], "}"}]], "Output",
+ CellChangeTimes->{3.601155130803218*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"0246", ",", " ", "15"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6011551335487647`*^9, 3.6011551806131268`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2046", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", 
+   ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", 
+   "6174", ",", "6174", ",", "6174", ",", "6174"}], "}"}]], "Output",
+ CellChangeTimes->{3.6011551684608936`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"3579", ",", " ", "15"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601155176229555*^9, 3.601155177149949*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "3579", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", 
+   ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", 
+   "6174", ",", "6174", ",", "6174", ",", "6174"}], "}"}]], "Output",
+ CellChangeTimes->{3.6011551828127127`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"2468", ",", " ", "15"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601155190534663*^9, 3.60115519251585*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2468", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", 
+   ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", "6174", ",", 
+   "6174", ",", "6174", ",", "6174", ",", "6174"}], "}"}]], "Output",
+ CellChangeTimes->{3.6011551932958455`*^9}]
+}, Open  ]],
+
+Cell["\<\
+As we show in conjecture six, these examples cover all possible combinations \
+of n, n+2, n+4, and n+6 because all integers with the same digits take the \
+same path to the number 6174.\
+\>", "Text",
+ CellChangeTimes->{{3.6011552048241715`*^9, 3.6011552695949564`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conjecture 6", "Subsubsection",
+ CellChangeTimes->{{3.6010914021504784`*^9, 3.601091404824746*^9}}],
+
+Cell["\<\
+Because you are always changing the number first from largest to smallest, \
+then smallest to largest, it does not matter in which order the digits \
+originally come in, just what the digits are. So 1234 would always yeild the \
+same as 4321, or any other combination of those four numbers. This is due to \
+the function of our ordering modules. No matter what order the integers come \
+in, they will return the same ordered number. 
+Since 1234 will yield the same results as 4132, 4231, 2314, etc, 23 options \
+(4*3*2-1) of unique integer possibilities are eliminated. So, in our loop \
+that goes through all 4-digit numbers, there are 24 with the same digits that \
+yeild the same result (for all cases in which one of the digits is not zero).\
+\>", "Text",
+ CellChangeTimes->{{3.6010914526155243`*^9, 3.6010915553307953`*^9}, {
+  3.6011205574302425`*^9, 3.6011206260424223`*^9}, {3.601151126407228*^9, 
+  3.601151223962123*^9}, {3.6011512638655853`*^9, 3.6011512639123845`*^9}, {
+  3.6011544008139315`*^9, 3.6011545046261826`*^9}}],
+
+Cell[TextData[{
+ StyleBox["\nGeneralizations\n", "Subsubtitle",
+  FontSize->24,
+  FontColor->GrayLevel[0.5]],
+ StyleBox["\n1 -3-digit numbers reach 495 in 6 iterations of uNextNumber \
+(except those with the same 3 digits)\n2 - The 3 digit numbers which take the \
+longest to reach 495 (those that reach it only on the 7th iteration of \
+uNextNumber) have 2 digits the same and one different\n3 - 5-digit numbers \
+reach a loop of four integers.\n4 - 6-digit numbers reach a loop of seven \
+integers", "Subsubtitle",
+  FontColor->GrayLevel[0.5]]
+}], "Text",
+ CellChangeTimes->{3.6011605789963226`*^9, 3.601162942840433*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generalization 1", "Subsubsection",
+ CellChangeTimes->{{3.6011238731981897`*^9, 3.601123875648655*^9}, {
+  3.601160437569442*^9, 3.6011604444177103`*^9}}],
+
+Cell["\<\
+This loop in the last module goes through all 3 digit numbers and finds those \
+that do not reach 495 by the 6th iteration of uNextNumber. The first four \
+modules are the same as appear in the body of #2, with slight modifications \
+such that leading zeros are not kept to four digits, but only to three.\
+\>", "Text",
+ CellChangeTimes->{{3.6011239071046305`*^9, 3.601123962516157*^9}, {
+  3.601124047042214*^9, 3.6011240599846725`*^9}, {3.601124106863658*^9, 
+  3.601124147456093*^9}, {3.6011242465406322`*^9, 3.6011242653506327`*^9}, {
+  3.6011243593216324`*^9, 3.6011243594616327`*^9}, {3.6011252140785356`*^9, 
+  3.6011252202584734`*^9}, {3.6011541031394596`*^9, 3.6011541033578005`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"getLargeToSmall3", "[", "x_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"number", "=", "0"}], ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "=", 
+       RowBox[{"IntegerDigits", "[", "x", "]"}]}], ";", "   ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "IntegerDigits", " ", "makes", " ", "a", " ", "list", " ", "out", " ", 
+        "of", " ", "an", " ", 
+        RowBox[{"integer", "'"}], "s", " ", 
+        RowBox[{"digits", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "list", "]"}], "\[Equal]", "2"}], ",", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"list", ",", "0"}], "]"}]}], "]"}], ";", "   ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "To", " ", "maintain", " ", "the", " ", "leading", " ", "zeros"}], 
+        ",", " ", 
+        RowBox[{
+        "a", " ", "zero", " ", "is", " ", "added", " ", "if", " ", "the", " ",
+          "length", " ", "of", " ", "the", " ", "list", " ", "is", " ", "not",
+          " ", "3.", " ", "This", " ", "will", " ", "work", " ", "for", " ", 
+         "four", " ", "digit", " ", 
+         RowBox[{"numbers", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"list", "=", 
+       RowBox[{"Sort", "[", 
+        RowBox[{"list", ",", "Greater"}], "]"}]}], ";", "  ", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Sort", "[", 
+         RowBox[{"list", ",", " ", "Greater"}], "]"}], " ", "puts", " ", 
+        "the", " ", "list", " ", "in", " ", "order", " ", "from", " ", 
+        "highest", " ", "to", " ", 
+        RowBox[{"smallest", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"number", "=", 
+       RowBox[{"FromDigits", "[", "list", "]"}]}], ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "FromDigits", " ", "creates", " ", "an", " ", "integer", " ", "from", 
+        " ", "the", " ", "new", " ", "ordered", " ", 
+        RowBox[{"list", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "number", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{"given", " ", "an", " ", "integer"}], ",", " ", 
+    RowBox[{
+    "returns", " ", "an", " ", "integer", " ", "with", " ", "the", " ", 
+     "digits", " ", "rearranged", " ", "from", "  ", "smallest", " ", "to", 
+     " ", 
+     RowBox[{"largest", ".", " ", "The"}], " ", "steps", " ", "are", " ", 
+     "similar", " ", "to", " ", "those", " ", 
+     RowBox[{"above", "."}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"getSmallToLarge3", "[", "x_", "]"}], ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"number", "=", "0"}], ",", 
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"list", "=", 
+       RowBox[{"IntegerDigits", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "list", "]"}], "\[Equal]", "2"}], ",", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"list", ",", "0"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"list", "=", 
+       RowBox[{"Sort", "[", "list", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"number", "=", 
+       RowBox[{"FromDigits", "[", "list", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "number", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{"given", " ", "an", " ", "integer"}], ",", " ", 
+    RowBox[{
+    "returns", " ", "the", " ", "result", " ", "of", " ", "the", " ", 
+     "number", " ", "ordered", " ", "from", " ", "largest", " ", "to", " ", 
+     "smallest", " ", "minus", " ", "the", " ", "number", " ", "ordered", " ",
+      "from", " ", "smallest", " ", "to", " ", 
+     RowBox[{"largest", "."}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"uNextNumber3", "[", "x_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{
+       RowBox[{"getLargeToSmall3", "[", "x", "]"}], "-", 
+       RowBox[{"getSmallToLarge3", "[", "x", "]"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"This", " ", "Module"}], ",", " ", 
+    RowBox[{
+    "given", " ", "a", " ", "number", " ", "to", " ", "manipulate", " ", 
+     "and", " ", "a", " ", "max", " ", "number", " ", "to", " ", "display"}], 
+    ",", " ", 
+    RowBox[{
+     RowBox[{
+     "returns", " ", "a", " ", "list", " ", "of", " ", "repeated", " ", "y"}],
+      "-", 
+     RowBox[{"z", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"y", ":", " ", 
+         RowBox[{
+         "ordered", " ", "from", " ", "high", " ", "to", " ", "low"}]}], ";", 
+        " ", 
+        RowBox[{"z", ":", " ", 
+         RowBox[{
+         "ordered", " ", "from", " ", "low", " ", "to", " ", "high"}]}]}], 
+       ")"}], " ", 
+      RowBox[{"values", "."}]}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"uNextNumberSeq3", "[", 
+    RowBox[{"x_", ",", "count_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", "=", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"nextX", "=", "x"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"list", ",", "x"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"counter", "=", "1"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "The", " ", "loop", " ", "adds", " ", "count", " ", "number", " ", 
+        "of", " ", "integers", " ", "to", " ", "the", " ", "resulting", " ", 
+        RowBox[{"list", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"counter", "<", "count"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"nextX", "=", 
+          RowBox[{"uNextNumber3", "[", "nextX", "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"list", ",", "nextX"}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"counter", "+=", "1"}]}]}], "\[IndentingNewLine]", "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "list", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "100"}], ",", 
+    RowBox[{"i", "<", "1000"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"miniList", "=", 
+      RowBox[{"uNextNumberSeq3", "[", 
+       RowBox[{"i", ",", "7"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"number", "=", 
+      RowBox[{"miniList", "[", 
+       RowBox[{"[", "7", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"number", "\[Equal]", "495"}]}], ",", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"list", ",", "i"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]",
+    "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", "list"}], "Input",
+ CellChangeTimes->{{3.601123974688469*^9, 3.6011239754786196`*^9}, {
+  3.6011240324894495`*^9, 3.601124094122157*^9}, {3.6011241520763702`*^9, 
+  3.6011242373106327`*^9}, {3.601124297341633*^9, 3.6011243310616326`*^9}, {
+  3.6011244119016323`*^9, 3.601124432841633*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "111", ",", "222", ",", "333", ",", "444", ",", "555", ",", "666", ",", 
+   "777", ",", "888", ",", "999"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6011242380606327`*^9, {3.601124298381633*^9, 3.601124332171633*^9}, {
+   3.601124416841633*^9, 3.601124438591633*^9}}]
+}, Open  ]],
+
+Cell["\<\
+As shown, the only numbers that do not reach 495 by the 7th iteration are \
+those that have all of the same digits.\
+\>", "Text",
+ CellChangeTimes->{{3.6011242768506327`*^9, 3.6011242900806327`*^9}, {
+  3.601124336011633*^9, 3.6011243780316324`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generalization 2", "Subsubsection",
+ CellChangeTimes->{{3.6011244559816327`*^9, 3.6011244582116327`*^9}, {
+  3.6011604489416237`*^9, 3.601160452077163*^9}}],
+
+Cell["\<\
+This following Module shows us all of the three digit numbers that do not \
+reach 495 by the 6th iteration.\
+\>", "Text",
+ CellChangeTimes->{{3.601125184958827*^9, 3.601125203758639*^9}, {
+  3.601125235878318*^9, 3.6011252490082426`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "100"}], ",", 
+    RowBox[{"i", "<", "1000"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"miniList", "=", 
+      RowBox[{"uNextNumberSeq3", "[", 
+       RowBox[{"i", ",", "6"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"number", "=", 
+      RowBox[{"miniList", "[", 
+       RowBox[{"[", "6", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{"number", "\[Equal]", "495"}]}], " ", "&&", " ", 
+        RowBox[{"!", 
+         RowBox[{"sameDigits", "[", "number", "]"}]}]}], ",", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"list", ",", "i"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]",
+    "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", "list"}], "Input",
+ CellChangeTimes->{{3.601124528651577*^9, 3.6011245698011656`*^9}, {
+  3.601124708559778*^9, 3.6011247119197445`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "100", ",", "101", ",", "110", ",", "111", ",", "112", ",", "121", ",", 
+   "122", ",", "211", ",", "212", ",", "221", ",", "222", ",", "223", ",", 
+   "232", ",", "233", ",", "322", ",", "323", ",", "332", ",", "333", ",", 
+   "334", ",", "343", ",", "344", ",", "433", ",", "434", ",", "443", ",", 
+   "444", ",", "445", ",", "454", ",", "455", ",", "544", ",", "545", ",", 
+   "554", ",", "555", ",", "556", ",", "565", ",", "566", ",", "655", ",", 
+   "656", ",", "665", ",", "666", ",", "667", ",", "676", ",", "677", ",", 
+   "766", ",", "767", ",", "776", ",", "777", ",", "778", ",", "787", ",", 
+   "788", ",", "877", ",", "878", ",", "887", ",", "888", ",", "889", ",", 
+   "898", ",", "899", ",", "988", ",", "989", ",", "998", ",", "999"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.601124547071393*^9, 3.6011245529813337`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Sets", " ", "the", " ", "above", " ", "list", " ", "to", " ", "a", " ", 
+    "variable", " ", "for", " ", 
+    RowBox[{"analysis", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"testList", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "100", ",", "101", ",", "110", ",", "111", ",", "112", ",", "121", ",", 
+      "122", ",", "211", ",", "212", ",", "221", ",", "222", ",", "223", ",", 
+      "232", ",", "233", ",", "322", ",", "323", ",", "332", ",", "333", ",", 
+      "334", ",", "343", ",", "344", ",", "433", ",", "434", ",", "443", ",", 
+      "444", ",", "445", ",", "454", ",", "455", ",", "544", ",", "545", ",", 
+      "554", ",", "555", ",", "556", ",", "565", ",", "566", ",", "655", ",", 
+      "656", ",", "665", ",", "666", ",", "667", ",", "676", ",", "677", ",", 
+      "766", ",", "767", ",", "776", ",", "777", ",", "778", ",", "787", ",", 
+      "788", ",", "877", ",", "878", ",", "887", ",", "888", ",", "889", ",", 
+      "898", ",", "899", ",", "988", ",", "989", ",", "998", ",", "999"}], 
+     "}"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.601125280458872*^9, 3.6011252909590816`*^9}, {
+  3.601163019107855*^9, 3.601163045346719*^9}}],
+
+Cell["\<\
+To analyze this list, the following code creates a list of those numbers in \
+the above list which do not have at least two of the same digits.\
+\>", "Text",
+ CellChangeTimes->{{3.6011252551683655`*^9, 3.60112531787962*^9}, {
+  3.6011256588552055`*^9, 3.6011256701452055`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "Module", " ", "returns", " ", "a", " ", "boolean", " ", "as",
+     " ", "to", " ", "whether", " ", "or", " ", "not", " ", "at", " ", 
+    "least", " ", "two", " ", "digits", " ", "of", " ", "a", " ", "given", 
+    " ", "number", " ", "are", " ", "the", " ", 
+    RowBox[{"same", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"twoDigits", "[", "number_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"num", "=", "number"}], ",", " ", "digit1", ",", "digit2", 
+        ",", "  ", "digits"}], "}"}], ",", " ", 
+      RowBox[{
+       RowBox[{"digits", "=", 
+        RowBox[{"IntegerDigits", "[", "num", "]"}]}], ";", 
+       RowBox[{"digit1", "=", 
+        RowBox[{"digits", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+       RowBox[{"digit2", "=", 
+        RowBox[{"digits", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+       RowBox[{"digits", "=", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{"digits", ",", " ", "digit1"}], "]"}]}], ";", 
+       RowBox[{"digits", "=", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{"digits", ",", "digit2"}], "]"}]}], ";", " ", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "digits", "]"}], "\[GreaterEqual]", "2"}], 
+         ",", " ", 
+         RowBox[{"Return", "[", "False", "]"}], ",", " ", 
+         RowBox[{"Return", "[", "True", "]"}]}], "]"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"deleteSameDigits", "[", "listNums_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"list", "=", "listNums"}], ",", " ", "count", ",", " ", 
+        RowBox[{"resList", "=", 
+         RowBox[{"{", "}"}]}]}], "}"}], ",", " ", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"count", "=", "1"}], ",", " ", 
+         RowBox[{"count", "\[LessEqual]", 
+          RowBox[{"Length", "[", "list", "]"}]}], ",", " ", 
+         RowBox[{"count", "++"}], ",", " ", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"!", 
+            RowBox[{"twoDigits", "[", " ", 
+             RowBox[{"list", "[", 
+              RowBox[{"[", "count", "]"}], "]"}], " ", "]"}]}], ",", " ", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"resList", ",", " ", 
+             RowBox[{"list", "[", 
+              RowBox[{"[", "count", "]"}], "]"}]}], " ", "]"}]}], " ", 
+          "]"}]}], "]"}], ";", 
+       RowBox[{"Return", "[", "resList", "]"}]}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.601125335120965*^9, 3.6011253352609673`*^9}, {
+  3.601125445643175*^9, 3.6011256415552053`*^9}, {3.601125754045205*^9, 
+  3.601125767085205*^9}, {3.6011500863995657`*^9, 3.601150139152421*^9}, {
+  3.6011503364606967`*^9, 3.6011503732166977`*^9}, {3.601150453215969*^9, 
+  3.601150580109761*^9}, {3.6011507525935507`*^9, 3.6011507528119245`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"deleteSameDigits", "[", "testList", "]"}]], "Input",
+ CellChangeTimes->{{3.6011505836349316`*^9, 3.6011505910908237`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.6011505918083363`*^9, 3.6011505982503514`*^9}, 
+   3.601150757803316*^9}]
+}, Open  ]],
+
+Cell["\<\
+The empty list shows that all 3-digit numbers that take 7 iterations to reach \
+495 have at least two digits that are the same.\
+\>", "Text",
+ CellChangeTimes->{{3.6011507667566257`*^9, 3.6011507713892612`*^9}, {
+  3.601150893062209*^9, 3.601150963571355*^9}, {3.601151012613982*^9, 
+  3.601151018323143*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generalization 3", "Subsubsection",
+ CellChangeTimes->{{3.601154133754015*^9, 3.6011541359842143`*^9}, {
+  3.601160458083048*^9, 3.6011604610469904`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"28372", ",", "20"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601154623009873*^9, 3.60115464411559*^9}, {
+  3.6011547049524703`*^9, 3.6011547143119907`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "28372", ",", "64944", ",", "51975", ",", "81972", ",", "85932", ",", 
+   "74943", ",", "62964", ",", "71973", ",", "83952", ",", "74943", ",", 
+   "62964", ",", "71973", ",", "83952", ",", "74943", ",", "62964", ",", 
+   "71973", ",", "83952", ",", "74943", ",", "62964", ",", "71973"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6011546463462763`*^9, 3.6011546650341177`*^9}, {
+  3.6011547059820175`*^9, 3.6011547152635417`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"38126", ",", "20"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6011547327190466`*^9, 3.6011547331246257`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "38126", ",", "73953", ",", "63954", ",", "61974", ",", "82962", ",", 
+   "75933", ",", "63954", ",", "61974", ",", "82962", ",", "75933", ",", 
+   "63954", ",", "61974", ",", "82962", ",", "75933", ",", "63954", ",", 
+   "61974", ",", "82962", ",", "75933", ",", "63954", ",", "61974"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.601154734044978*^9}]
+}, Open  ]],
+
+Cell["\<\
+The first number goes into a cycle of the numbers 62964, 71973, 83952, and \
+74943 and the second goes into a cycle of the numbers 82962, 75933, 63954, \
+and 61974. 
+Five digit numbers will reach a cycle of four numbers. The loops are unique \
+to each digit combination. \
+\>", "Text",
+ CellChangeTimes->{{3.6011547537623672`*^9, 3.6011549129534073`*^9}, {
+  3.601155325271*^9, 3.6011553298105707`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generalization 4", "Subsubsection",
+ CellChangeTimes->{{3.6011549252147713`*^9, 3.601154926961938*^9}, {
+  3.601160465024914*^9, 3.601160468394449*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"319371", ",", " ", "25"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6011549439500113`*^9, 3.601154956226975*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "319371", ",", "859932", ",", "762633", ",", "532665", ",", "429966", ",", 
+   "749943", ",", "652644", ",", "420876", ",", "851742", ",", "750843", ",", 
+   "840852", ",", "860832", ",", "862632", ",", "642654", ",", "420876", ",", 
+   "851742", ",", "750843", ",", "840852", ",", "860832", ",", "862632", ",", 
+   "642654", ",", "420876", ",", "851742", ",", "750843", ",", "840852"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6011549577869453`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"821931", ",", " ", "25"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601154992933069*^9, 3.6011549953198233`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "821931", ",", "870822", ",", "864432", ",", "629964", ",", "749943", ",", 
+   "652644", ",", "420876", ",", "851742", ",", "750843", ",", "840852", ",", 
+   "860832", ",", "862632", ",", "642654", ",", "420876", ",", "851742", ",", 
+   "750843", ",", "840852", ",", "860832", ",", "862632", ",", "642654", ",", 
+   "420876", ",", "851742", ",", "750843", ",", "840852", ",", "860832"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6011549965054007`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uNextNumberSeq", "[", 
+  RowBox[{"112238", ",", " ", "25"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601155353475619*^9, 3.6011553566735983`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "112238", ",", "719973", ",", "859932", ",", "762633", ",", "532665", ",", 
+   "429966", ",", "749943", ",", "652644", ",", "420876", ",", "851742", ",", 
+   "750843", ",", "840852", ",", "860832", ",", "862632", ",", "642654", ",", 
+   "420876", ",", "851742", ",", "750843", ",", "840852", ",", "860832", ",", 
+   "862632", ",", "642654", ",", "420876", ",", "851742", ",", "750843"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6011553579839897`*^9}]
+}, Open  ]],
+
+Cell["\<\
+These six digit numbers all reach a loop of the seven numbers: 860832, \
+862632, 642654, 420876, 851742, 750843, and 840852. We can predict that any \
+integer with an even number of digits will reach a fixed number or cycle of \
+numbers as those with the same number of digits.Odd numbers will reach a \
+loop, but not one that is consistent throughout the set of number with the \
+same number of digits.\
+\>", "Text",
+ CellChangeTimes->{{3.6011550073783913`*^9, 3.6011550735679183`*^9}, {
+  3.601155284867258*^9, 3.601155313680274*^9}, {3.6011553865942063`*^9, 
+  3.6011555151529827`*^9}, {3.601163107855117*^9, 3.601163112098263*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["\n3.",
+ FontSize->36,
+ FontColor->RGBColor[0, 0, 1]]], "Subtitle",
+ CellChangeTimes->{{3.601155686213213*^9, 3.6011557105161924`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "Module", " ", "returns", " ", "a", " ", "number", " ", 
+    "which", " ", "represents", " ", "the", " ", "distance", " ", "from", " ",
+     "a", " ", "given", " ", "integer", " ", "to", " ", "the", " ", "closest",
+     " ", "member", " ", "of", " ", "a", " ", "twin", " ", 
+    RowBox[{"prime", "."}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"uDistToTwinPrime", "[", "number_", "]"}], " ", ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"num", "=", "number"}], ",", " ", 
+        RowBox[{"count", "=", "0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"The", " ", "loop", " ", "is", " ", "executed", " ", 
+         RowBox[{"continually", "--"}], "while", " ", "True", " ", "is", " ", 
+         "true"}], ",", " ", 
+        RowBox[{
+         RowBox[{"always", "--"}], "and", " ", "checks", " ", "if", " ", 
+         "the", " ", "numbers", " ", "count", " ", "distance", " ", "from", 
+         " ", "the", " ", "given", " ", "number", " ", "is", " ", "part", " ",
+          "of", " ", "a", " ", 
+         RowBox[{"prime", ".", " ", "If"}], " ", "so"}], ",", " ", 
+        RowBox[{
+        "then", " ", "that", " ", "distance", " ", "count", " ", "is", " ", 
+         RowBox[{"returned", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{"True", ",", " ", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"partOfTwinPrime", "[", 
+             RowBox[{"num", "-", "count"}], "]"}], "||", " ", 
+            RowBox[{"partOfTwinPrime", "[", 
+             RowBox[{"num", "+", "count"}], "]"}]}], ",", " ", 
+           RowBox[{"Return", "[", "count", "]"}]}], "]"}], ";", 
+         RowBox[{"count", "++"}]}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "This", " ", "Module", " ", "returns", " ", "a", " ", "boolean", " ", 
+     "as", " ", "to", " ", "whether", " ", "a", " ", "given", " ", "integer", 
+     " ", "is", " ", "part", " ", "of", " ", "a", " ", "twin", " ", "prime", 
+     " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+       "which", " ", "means", " ", "that", " ", "it", " ", "and", " ", "the", 
+        " ", "number", " ", "two", " ", "above", " ", "or", " ", "below", " ",
+         "it", " ", "is", " ", "a", " ", "prime"}], ")"}], "."}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"partOfTwinPrime", "[", "number_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"num", "=", "number"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"PrimeQ", "[", "num", "]"}], " ", "&&", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"PrimeQ", "[", 
+            RowBox[{"num", "+", "2"}], "]"}], " ", "||", " ", 
+           RowBox[{"PrimeQ", "[", 
+            RowBox[{"num", "-", "2"}], "]"}]}], ")"}]}], ",", " ", 
+        RowBox[{"Return", "[", "True", "]"}], ",", " ", 
+        RowBox[{"Return", "[", "False", "]"}]}], "]"}]}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.601155694496123*^9, 3.60115569621198*^9}, {
+  3.601156102678936*^9, 3.601156108544348*^9}, {3.601156148993851*^9, 
+  3.6011562848041935`*^9}, {3.601157461152503*^9, 3.6011574740425034`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sample Executions", "Subsubsection",
+ CellChangeTimes->{{3.601157863125597*^9, 3.601157869855395*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uDistToTwinPrime", "[", "7", "]"}]], "Input",
+ CellChangeTimes->{{3.601157888814826*^9, 3.6011578970745783`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.601157897724559*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uDistToTwinPrime", "[", "25", "]"}]], "Input",
+ CellChangeTimes->{{3.6011579006744704`*^9, 3.6011579091342163`*^9}}],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.6011579096742*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uDistToTwinPrime", "[", "49", "]"}]], "Input",
+ CellChangeTimes->{{3.6011579167039895`*^9, 3.6011579186439314`*^9}}],
+
+Cell[BoxData["6"], "Output",
+ CellChangeTimes->{3.6011579204638767`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 246, 6, 177, "Title"],
+Cell[828, 30, 149, 3, 55, "Text"],
+Cell[980, 35, 2138, 52, 242, "Input"],
+Cell[3121, 89, 4140, 94, 474, "Input"],
+Cell[CellGroupData[{
+Cell[7286, 187, 221, 3, 41, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[7510, 192, 281, 6, 52, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[7794, 200, 358, 8, 31, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[8155, 210, 248, 5, 31, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[8406, 217, 715, 19, 31, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9124, 238, 251, 5, 31, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9378, 245, 404, 10, 31, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9819, 260, 158, 3, 73, "Subtitle"],
+Cell[9980, 265, 2823, 65, 372, "Input"],
+Cell[12806, 332, 1657, 39, 232, "Input"],
+Cell[14466, 373, 983, 22, 152, "Input"],
+Cell[15452, 397, 3133, 76, 372, "Input"],
+Cell[CellGroupData[{
+Cell[18610, 477, 109, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[18744, 482, 210, 4, 31, "Input"],
+Cell[18957, 488, 134, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19128, 496, 169, 3, 31, "Input"],
+Cell[19300, 501, 258, 5, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19595, 511, 217, 4, 31, "Input"],
+Cell[19815, 517, 187, 4, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20063, 528, 138, 5, 91, "Subtitle"],
+Cell[20204, 535, 1100, 22, 249, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[21329, 561, 155, 2, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[21509, 567, 135, 2, 31, "Input"],
+Cell[21647, 571, 91, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21775, 577, 190, 3, 31, "Input"],
+Cell[21968, 582, 148, 2, 31, "Output"]
+}, Open  ]],
+Cell[22131, 587, 435, 7, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22603, 599, 211, 3, 39, "Subsubsection"],
+Cell[22817, 604, 375, 6, 49, "Text"],
+Cell[23195, 612, 1002, 25, 132, "Input"],
+Cell[24200, 639, 171, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[24396, 646, 96, 1, 31, "Input"],
+Cell[24495, 649, 273, 6, 31, "Output"]
+}, Open  ]],
+Cell[24783, 658, 270, 5, 49, "Text"],
+Cell[25056, 665, 855, 23, 132, "Input"],
+Cell[25914, 690, 263, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[26202, 699, 132, 2, 31, "Input"],
+Cell[26337, 703, 97, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26483, 710, 209, 3, 39, "Subsubsection"],
+Cell[26695, 715, 235, 5, 30, "Text"],
+Cell[26933, 722, 1244, 28, 132, "Input"],
+Cell[CellGroupData[{
+Cell[28202, 754, 101, 1, 31, "Input"],
+Cell[28306, 757, 12325, 166, 1752, "Output"]
+}, Closed]],
+Cell[40646, 926, 212, 4, 46, "Text"],
+Cell[40861, 932, 810, 21, 112, "Input"],
+Cell[CellGroupData[{
+Cell[41696, 957, 101, 1, 31, "Input"],
+Cell[41800, 960, 10366, 139, 992, "Output"]
+}, Open  ]],
+Cell[52181, 1102, 227, 4, 49, "Text"],
+Cell[52411, 1108, 645, 18, 92, "Input"],
+Cell[53059, 1128, 275, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[53359, 1137, 101, 1, 31, "Input"],
+Cell[53463, 1140, 113, 2, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53625, 1148, 107, 1, 39, "Subsubsection"],
+Cell[53735, 1151, 435, 7, 49, "Text"],
+Cell[54173, 1160, 1587, 36, 172, "Input"],
+Cell[55763, 1198, 280, 5, 68, "Text"],
+Cell[CellGroupData[{
+Cell[56068, 1207, 95, 1, 31, "Input"],
+Cell[56166, 1210, 341, 5, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56556, 1221, 102, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[56683, 1226, 162, 3, 31, "Input"],
+Cell[56848, 1231, 301, 6, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57186, 1242, 169, 3, 31, "Input"],
+Cell[57358, 1247, 303, 6, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57698, 1258, 165, 3, 31, "Input"],
+Cell[57866, 1263, 303, 6, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58206, 1274, 164, 3, 31, "Input"],
+Cell[58373, 1279, 303, 6, 52, "Output"]
+}, Open  ]],
+Cell[58691, 1288, 279, 5, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59007, 1298, 105, 1, 39, "Subsubsection"],
+Cell[59115, 1301, 1044, 15, 182, "Text"],
+Cell[60162, 1318, 623, 12, 267, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60822, 1335, 160, 2, 39, "Subsubsection"],
+Cell[60985, 1339, 703, 10, 87, "Text"],
+Cell[CellGroupData[{
+Cell[61713, 1353, 8106, 197, 1192, "Input"],
+Cell[69822, 1552, 311, 7, 31, "Output"]
+}, Open  ]],
+Cell[70148, 1562, 260, 5, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70445, 1572, 162, 2, 39, "Subsubsection"],
+Cell[70610, 1576, 248, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[70883, 1585, 1101, 28, 172, "Input"],
+Cell[71987, 1615, 883, 14, 92, "Output"]
+}, Open  ]],
+Cell[72885, 1632, 1236, 23, 132, "Input"],
+Cell[74124, 1657, 287, 5, 49, "Text"],
+Cell[74414, 1664, 3059, 73, 272, "Input"],
+Cell[CellGroupData[{
+Cell[77498, 1741, 146, 2, 31, "Input"],
+Cell[77647, 1745, 141, 3, 31, "Output"]
+}, Open  ]],
+Cell[77803, 1751, 319, 6, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78159, 1762, 160, 2, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[78344, 1768, 213, 4, 31, "Input"],
+Cell[78560, 1774, 474, 9, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79071, 1788, 165, 3, 31, "Input"],
+Cell[79239, 1793, 393, 8, 52, "Output"]
+}, Open  ]],
+Cell[79647, 1804, 413, 8, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80097, 1817, 158, 2, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[80280, 1823, 169, 3, 31, "Input"],
+Cell[80452, 1828, 494, 9, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80983, 1842, 169, 3, 31, "Input"],
+Cell[81155, 1847, 494, 9, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81686, 1861, 169, 3, 31, "Input"],
+Cell[81858, 1866, 494, 9, 52, "Output"]
+}, Open  ]],
+Cell[82367, 1878, 645, 10, 68, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83061, 1894, 158, 3, 125, "Subtitle"],
+Cell[83222, 1899, 3493, 79, 212, "Input"],
+Cell[CellGroupData[{
+Cell[86740, 1982, 108, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[86873, 1987, 137, 2, 31, "Input"],
+Cell[87013, 1991, 70, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87120, 1997, 140, 2, 31, "Input"],
+Cell[87263, 2001, 68, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87368, 2007, 140, 2, 31, "Input"],
+Cell[87511, 2011, 72, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

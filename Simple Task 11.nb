@@ -1,0 +1,410 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     15565,        401]
+NotebookOptionsPosition[     14237,        350]
+NotebookOutlinePosition[     14731,        370]
+CellTagsIndexPosition[     14688,        367]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Simple Task 11",
+  FontSize->36],
+ "\nValerie Richmond CPS371 8am"
+}], "Subtitle",
+ CellChangeTimes->{{3.6044147572466607`*^9, 3.604414776386469*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["i.", "Subsection",
+ CellChangeTimes->{{3.6044147175270576`*^9, 3.6044147177970552`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lifeExp", "=", 
+   RowBox[{"CountryData", "[", 
+    RowBox[{"\"\<Countries\>\"", ",", " ", "\"\<LifeExpectancy\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"povFrac", "=", 
+   RowBox[{"CountryData", "[", 
+    RowBox[{"\"\<Countries\>\"", ",", " ", "\"\<PovertyFraction\>\""}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6044141890236826`*^9, 3.604414238862686*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pointList", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", " ", 
+    RowBox[{"i", "<", 
+     RowBox[{"Length", "[", "lifeExp", "]"}]}], ",", " ", 
+    RowBox[{"i", "++"}], ",", " ", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"pointList", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"lifeExp", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
+        RowBox[{"povFrac", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.604414258232299*^9, 3.604414333000803*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"pointList", ",", " ", 
+   RowBox[{"Frame", "\[Rule]", " ", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<Life Expectancy\>\"", ",", "\"\< \>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Poverty Fraction\>\"", ",", "\"\< \>\""}], "}"}]}], 
+     "}"}]}]}], " ", "]"}]], "Input",
+ CellChangeTimes->{{3.60441433768071*^9, 3.604414344370576*^9}, {
+   3.6044143989695034`*^9, 3.604414444480048*^9}, {3.604414475999733*^9, 
+   3.6044145286992064`*^9}, {3.604414577025098*^9, 3.604414600791098*^9}, 
+   3.604572706109077*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], PointBox[CompressedData["
+1:eJxVVg1MlVUYZsyZsSRTskZGoGY6JeaKHHP2vooFeLn3ft/5vlow5kxMXbMs
+EVRI+yErZlTqzCDLAh3CHJEDEmOM/z/5u/dCFwQEImjOmpkZmeL6znvOPXd9
+G9yd756f533e53nOjdi8k70SGBAQcNj6459/FDXbVu1z4N9LUz6tvzkK9wUu
+/3B+koEB9PQAfdTq+OaaIG/hG52g5R5/fe6NBPxNPx928OoA5OdZzzJTfU/v
+5xlY2/7tc5U3OuHz2EM7fi1kcv8eMMdPf9kYb+L2w7+/BdGl0Lf3ypKVZTry
+3fTzXXAhwULQzZDDGOj6AaI3Wm9KdOzs4M8QzDq7IHlLlo5/uu2b57zkEngW
+mTh468Cr1bsb4ERjeNmuvUzi6QP+f02JHV8Mjjz31TWvwPeIiYwObIWctZsm
+eubquJ9O6gVa16PhU/SMQ/xYZkjpQ34+iK+2OFxJQDzAUU5lMeTHBHk9sM7a
+bmEqQwG8HvZZ5c1akYgPz+AIhiF5y+oR52wbNtzkhExAeWtGzcl/ddy2lT8/
+AcH6yCb5uAzEw0YTL3VNGeOnf4SLnNYmJvF54OtrFqDjCUh9yLsCfFXYtIFW
+sdYXLbCn5mRoVB/DrJDSuLHMchhxWoS9x7BsF+/ACDzKAe10qHqJn9uGnN8o
++I01cBlv39Jq2MAFMulATkvc2CUQy/x4iMckhs/w8gMHgea5NDX/m9Co4cVh
+BtK+2f2CpnZd4m+D9KMWU0sYDlC9HuDD4Neckv9RcFhdjznB5Pxiub8T/zG4
+sPrhFG9Dmi772yPHJibFcKa/A6ormSm+Hp/57rHYo/7+8fbkRpmq3lVcIJ85
+8FkSkhvu9nLB+vjsBa6qokpD6Z/wz2RIur89JsbBifggnx5yWdST61TnEwG7
+GXq4nGNGhd6KGFpitqZWgmuhpex8TemP9FOhY6o1u7y1WfQnmyHBC2oB8lWk
+Kf35vagvzaefi8KvVTbVDxq/zPBjC23x9XpRTwZDwhlZD3eKr7vtBRqu5+UU
+10E332bQofrxBDfCz5qsZwBId/N01T/yY4APj0vkS1U8Er0pI8LvcQ7FB/m8
+14fnHFBZ9/j4PgXcTmc7GJKO53ogmwfNk5rCQ7FRZPt/ntUxpHULSoTfMw1Z
+fzsQz+/bsIL7MNQLZMNmh6qHu3z1Nr9/KHc2GYoP8nsaQ/LFfBecseIhJ0aX
++7tFvo1qan/ejkPlTPWH9FytS/80iLwNT0DCsXVS9M+mYQQZthf+mrYEGKYh
+nTs4JvItVEfqW7NH+HudKc+/ABQ7FUzlCeXW03ap719EHuMGmT+TIGjWVB4P
+L7YApBrIu+G2u4H6Gu1EknOpF97mBM7x+4HHzXC5bzwEBVZcTa/QVT6QXkIN
+mX9N4rw7htIv5VU6U3qnuu5q0h+Ngq8Z/nwmXo5pGC8KFvlT5VRjosXyB+VA
+YZnQR8vz+AC3T8YkNFny3D7AlB6ozglfPtUKP6UnKn2Jug3VL6LtA1PeR23w
+BV91hEl+O6R+nUpPdH/U6Ypv2vadeJkPk+J+s+5Lga8GKFb2G/J+yxZ53e2v
+n+pqcEj+vECyzPPlWxXQuvWJqj9U13Km+ks23KOrftD+U37/UX97mMpnkmGK
+pvpJ9ebb1f1F8yJ0fIHrKrxf8BltSD+2Al0Li3x5UCf1b0g8NaJ/95rI1X3r
+gBse468dBhJvOS7g9tlxv470PqwPqE1nGJLv1vZLPfnzjOoq8P0eGBZ5/IlT
++mlI8DvbjrTdwavwH269Gog=
+      "]]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{45.561, 0},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"Life Expectancy\"", TraditionalForm], 
+     FormBox["\" \"", TraditionalForm]}, {
+     FormBox["\"Poverty Fraction\"", TraditionalForm], 
+     FormBox["\" \"", TraditionalForm]}},
+  Method->{},
+  PlotRange->{{45.561, 82.1}, {0, 0.86}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.7307799999999999, 0.7307799999999999}, {0.0172, 
+   0.0172}}]], "Output",
+ CellChangeTimes->{
+  3.604414345210559*^9, 3.6044144451000423`*^9, 3.604414477239721*^9, {
+   3.604414507709416*^9, 3.6044145293491993`*^9}, {3.604414582332098*^9, 
+   3.604414601344098*^9}, 3.6045727347327976`*^9, 3.60457351053056*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ii.", "Subsection",
+ CellChangeTimes->{{3.6044147292869406`*^9, 3.6044147295569377`*^9}}],
+
+Cell["\<\
+The life expectancy is higher for countries with a lower poverty fraction. \
+This can be explained by the fact that living in poverty often means that one \
+can\[CloseCurlyQuote]t afford health care or good nutritious meals, both of \
+which would contribute to longevity. Also, a country with a high poverty \
+fraction is most likely poor and so could not provide health care to its \
+people.\
+\>", "Text",
+ CellChangeTimes->{{3.604414734016893*^9, 3.604414734156892*^9}, {
+  3.604572362566162*^9, 3.604572563236135*^9}, {3.6045726059720874`*^9, 
+  3.6045726080228047`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["iii.", "Subsection",
+ CellChangeTimes->{{3.604414743596797*^9, 3.604414744426789*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pointList", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"pointList", ",", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NumberQ", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], "&&", " ", 
+       RowBox[{"NumberQ", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "]"}]}], " ", "&"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.604573104517568*^9, 3.604573122087325*^9}, {
+   3.604573184723854*^9, 3.604573251676193*^9}, {3.6045733565982914`*^9, 
+   3.604573422059601*^9}, {3.6045734672501273`*^9, 3.604573491940374*^9}, 
+   3.6045735439908943`*^9, {3.6045736071425257`*^9, 3.6045736102025566`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "x", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fxn", "=", 
+  RowBox[{"Fit", "[", 
+   RowBox[{"pointList", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "x"}], "}"}], ",", " ", "x"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6045735591010456`*^9, 3.60457356353209*^9}, {
+  3.6045735984724393`*^9, 3.604573631832773*^9}, {3.604574223250713*^9, 
+  3.6045742242307715`*^9}, {3.6045742805441504`*^9, 3.604574281074182*^9}}],
+
+Cell[BoxData[
+ RowBox[{"1.3782245010361314`", "\[VeryThinSpace]", "-", 
+  RowBox[{"0.01514024052128425`", " ", "x"}]}]], "Output",
+ CellChangeTimes->{
+  3.6045735644820995`*^9, {3.60457360053246*^9, 3.6045736322627773`*^9}, 
+   3.604574224760803*^9, 3.60457428170422*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"ListPlot", "[", "pointList", "]"}], ",", " ", 
+    RowBox[{"Plot", "[", 
+     RowBox[{"fxn", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "45", ",", "85"}], "}"}]}], "]"}]}], "]"}], 
+  " "}]], "Input",
+ CellChangeTimes->{{3.6045732572363043`*^9, 3.6045733267776947`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], PointBox[CompressedData["
+1:eJxVVg1MlVUYZsyZsSRTskZGoGY6JeaKHHP2vooFeLn3ft/5vlow5kxMXbMs
+EVRI+yErZlTqzCDLAh3CHJEDEmOM/z/5u/dCFwQEImjOmpkZmeL6znvOPXd9
+G9yd756f533e53nOjdi8k70SGBAQcNj6459/FDXbVu1z4N9LUz6tvzkK9wUu
+/3B+koEB9PQAfdTq+OaaIG/hG52g5R5/fe6NBPxNPx928OoA5OdZzzJTfU/v
+5xlY2/7tc5U3OuHz2EM7fi1kcv8eMMdPf9kYb+L2w7+/BdGl0Lf3ypKVZTry
+3fTzXXAhwULQzZDDGOj6AaI3Wm9KdOzs4M8QzDq7IHlLlo5/uu2b57zkEngW
+mTh468Cr1bsb4ERjeNmuvUzi6QP+f02JHV8Mjjz31TWvwPeIiYwObIWctZsm
+eubquJ9O6gVa16PhU/SMQ/xYZkjpQ34+iK+2OFxJQDzAUU5lMeTHBHk9sM7a
+bmEqQwG8HvZZ5c1akYgPz+AIhiF5y+oR52wbNtzkhExAeWtGzcl/ddy2lT8/
+AcH6yCb5uAzEw0YTL3VNGeOnf4SLnNYmJvF54OtrFqDjCUh9yLsCfFXYtIFW
+sdYXLbCn5mRoVB/DrJDSuLHMchhxWoS9x7BsF+/ACDzKAe10qHqJn9uGnN8o
++I01cBlv39Jq2MAFMulATkvc2CUQy/x4iMckhs/w8gMHgea5NDX/m9Co4cVh
+BtK+2f2CpnZd4m+D9KMWU0sYDlC9HuDD4Neckv9RcFhdjznB5Pxiub8T/zG4
+sPrhFG9Dmi772yPHJibFcKa/A6ormSm+Hp/57rHYo/7+8fbkRpmq3lVcIJ85
+8FkSkhvu9nLB+vjsBa6qokpD6Z/wz2RIur89JsbBifggnx5yWdST61TnEwG7
+GXq4nGNGhd6KGFpitqZWgmuhpex8TemP9FOhY6o1u7y1WfQnmyHBC2oB8lWk
+Kf35vagvzaefi8KvVTbVDxq/zPBjC23x9XpRTwZDwhlZD3eKr7vtBRqu5+UU
+10E332bQofrxBDfCz5qsZwBId/N01T/yY4APj0vkS1U8Er0pI8LvcQ7FB/m8
+14fnHFBZ9/j4PgXcTmc7GJKO53ogmwfNk5rCQ7FRZPt/ntUxpHULSoTfMw1Z
+fzsQz+/bsIL7MNQLZMNmh6qHu3z1Nr9/KHc2GYoP8nsaQ/LFfBecseIhJ0aX
++7tFvo1qan/ejkPlTPWH9FytS/80iLwNT0DCsXVS9M+mYQQZthf+mrYEGKYh
+nTs4JvItVEfqW7NH+HudKc+/ABQ7FUzlCeXW03ap719EHuMGmT+TIGjWVB4P
+L7YApBrIu+G2u4H6Gu1EknOpF97mBM7x+4HHzXC5bzwEBVZcTa/QVT6QXkIN
+mX9N4rw7htIv5VU6U3qnuu5q0h+Ngq8Z/nwmXo5pGC8KFvlT5VRjosXyB+VA
+YZnQR8vz+AC3T8YkNFny3D7AlB6ozglfPtUKP6UnKn2Jug3VL6LtA1PeR23w
+BV91hEl+O6R+nUpPdH/U6Ypv2vadeJkPk+J+s+5Lga8GKFb2G/J+yxZ53e2v
+n+pqcEj+vECyzPPlWxXQuvWJqj9U13Km+ks23KOrftD+U37/UX97mMpnkmGK
+pvpJ9ebb1f1F8yJ0fIHrKrxf8BltSD+2Al0Li3x5UCf1b0g8NaJ/95rI1X3r
+gBse468dBhJvOS7g9tlxv470PqwPqE1nGJLv1vZLPfnzjOoq8P0eGBZ5/IlT
++mlI8DvbjrTdwavwH269Gog=
+      "]]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVjns0FAgUh6dWSBIqqSgjYpTIo8Mc3NtUY4yYl6koZZSWsaSopDbPsKVQ
+aCqP2pQ91exaS/PYXXlGzXCGMl7JaMa0W2w4a2mxu7N/3HPPPef7/e5HjDzB
+jlpMIBCCdPP/phj36xPSqFhiYKi2DtKCSVPSkuvpVFRucQkXBGqh/6ypnl0m
+FS2Y+3rN6VpIUPsvomXreEGlzMBfCxXSp3P5eVQsIu2snUQtzEcXTWy8RcXC
+wJRLrR5aeNrKGIAaKl7JH3OIs9LCltTnwlQNFVPXdH31y8dRuBj05ngiyx/l
+9XaGThmjMLOy7MU2kT/SdjXeK9k4CvvL3YI/rqOhntoMp+o1QMya0KzPoaH9
+uvFPVvs0YBYZar9qjIZJ28zKqX+qIfbOh7NpoQHoOPAsHC6rQShgjo23BOD6
+e7a2DrZqWH2NZ7SJREffPZ2a5Y3v4P3b22R5MR1b0vQkzfvfwbBD6irfOTom
+38q8kjw9AvUeXqY/HA7E+I6nkVbFI2BQtnZD8ctAbBckBeZvHYEzCw96KC57
+kbnzvNsimQqYkrCKY6V70SfdeAuFpwIzb83lHIMgVIjvMzVTwzBbbWlzKjYI
+s0kN/pTtwxCQdbpN0RuE+i8meX5H3kID42vLGZ9gVNnWJXvdGYJ7Z4TnCx8F
+Y/bjqzWK52+Az6shOFsw8BG/c5r61yCE7o50KUhhoJPmrufP7oNQk0FO+PI9
+A5PycgUdEQMgeHPYOXMzE60+LZodutMPsv7L7pwDTNydq46QD/TBT3oySvg1
+JnowB8YOLO2D7x+rNssamJjVHXlavacXDqcZrUqcYaIgk0A0PqWExaIN19c7
+s9A1Vl9p/m0PSGIMRx2OsNBueXnOGtVrsKfr74wvZqFqiH5Iuvw1VD7sP2nZ
+zsLZ6G+cDwa8gjVRN92bP7OwwMnVcCC3G4AV80+VCxsn1o0tmRF1QYrEtHyC
+x8bqVm+C+bQC+Aw5NVHARo+KUmsZUQFxvPCWUBkbXY/bntCTdMLRnr5uXGAj
+YW6wbtuODjA5G/2B587BiPFnlOLrMpAXdSi1URxMDmlrnzF6CaCiyh+UctBx
+7eeiksh2eHj1ETuqm4MK+lziZONzsBGphbl6Ieg1abOX5tsKDJPt5lpyCDpO
+J/AHbzZD4QgnsCouBPviNOl8kyZos+CtjqkIwVyO45O6vAaoOZfx27GeECxw
+dvZOef0rVB84V9BiwMWCMqZxepsUPBtJFx8YclHlndI3IpGClDQQm72Ui6i8
+X0l5IoXmv8n+tGVcJKyY8dErlIKydH5BZsLFiLSyuJwwKcyrUmNfrdbxRz90
+Xh2XAC0mm/puk44nZRXeXimBjq4dHs12Or5VGD63RAJs8ntipT0Xq3m9pEOz
+Yji4jLYQ5cDFhNtOTdZDYogXLq393Unns6xr6u5DMRRN5hEnt3Ox4Q/rkCpv
+MawN813R7cZFmyv+NoZbxVDeND5f467LO5wci94ghqobwX1Jnlx0jWjJcvpC
+DFJP0/xZLy7e7eLXCeUi8CtvuNDvrfOLL0o3eSaCZv2TfClZ52dUH3TiRxHI
+e7v2XPDR9e8y07qWiICFGe7hvrr+YXJNYa4IlN+5Ef38uKg4f+ziVIoIwszU
+JhtB98/yGp0TJ4Lhczfm/9XdBbUii9ojIvgP4cU3Wg==
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{45.561, 0},
+  Method->{},
+  PlotRange->{{45.561, 82.1}, {0, 0.86}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.7307799999999999, 0.7307799999999999}, {0.0172, 
+   0.0172}}]], "Output",
+ CellChangeTimes->{
+  3.6045733281677227`*^9, {3.6045736146926017`*^9, 3.604573634142796*^9}, 
+   3.604574226770924*^9, 3.6045742829342937`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The relationship between the poverty fraction and life expectancy is linear \
+because the more people living in poverty a country has, the more pull down \
+on the life expectancy that country has, and that relationship is a simple \
+proportion.\
+\>", "Text",
+ CellChangeTimes->{{3.604572679678876*^9, 3.6045728377771916`*^9}, {
+  3.6045729819142494`*^9, 3.60457302827849*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"a", ",", "x", ",", "b"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"model", "=", 
+   RowBox[{
+    RowBox[{"a", "*", "x"}], "+", "b"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"statInfo", "=", 
+   RowBox[{"NonlinearModelFit", "[", 
+    RowBox[{"pointList", ",", "model", ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b"}], "}"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"statInfo", "[", 
+  RowBox[{"{", "\"\<RSquared\>\"", "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.604573710671692*^9, 3.604573810257167*^9}, {
+  3.6045739462195263`*^9, 3.604573969899763*^9}, {3.604574018330248*^9, 
+  3.6045740191002555`*^9}, {3.60457412075336*^9, 3.604574197959195*^9}, {
+  3.6045742384816265`*^9, 3.604574275733862*^9}, {3.6045743899217124`*^9, 
+  3.60457439221185*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "0.8596774166566226`", "}"}]], "Output",
+ CellChangeTimes->{{3.604573785896923*^9, 3.6045738107171717`*^9}, 
+   3.604573962109686*^9, {3.604574019470259*^9, 3.604574029170356*^9}, {
+   3.6045741346343603`*^9, 3.604574198989257*^9}, {3.604574229351079*^9, 
+   3.604574276683919*^9}, 3.6045743926418753`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The R squared value is relatively close to 1, indicating that the model is a \
+good fit. The data is pretty spaced out and so every model would have R \
+squared values at least a little below 1.\
+\>", "Text",
+ CellChangeTimes->{{3.604574294775004*^9, 3.604574372560671*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 177, 5, 108, "Subtitle"],
+Cell[CellGroupData[{
+Cell[781, 31, 94, 1, 49, "Subsection"],
+Cell[878, 34, 440, 11, 52, "Input"],
+Cell[1321, 47, 688, 20, 52, "Input"],
+Cell[CellGroupData[{
+Cell[2034, 71, 662, 15, 31, "Input"],
+Cell[2699, 88, 2678, 51, 257, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5426, 145, 95, 1, 49, "Subsection"],
+Cell[5524, 148, 584, 10, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6145, 163, 92, 1, 49, "Subsection"],
+Cell[6240, 166, 709, 17, 31, "Input"],
+Cell[CellGroupData[{
+Cell[6974, 187, 480, 10, 52, "Input"],
+Cell[7457, 199, 271, 5, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7765, 209, 355, 10, 31, "Input"],
+Cell[8123, 221, 4144, 75, 243, "Output"]
+}, Open  ]],
+Cell[12282, 299, 386, 7, 68, "Text"],
+Cell[CellGroupData[{
+Cell[12693, 310, 880, 21, 92, "Input"],
+Cell[13576, 333, 334, 5, 63, "Output"]
+}, Open  ]],
+Cell[13925, 341, 284, 5, 49, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
